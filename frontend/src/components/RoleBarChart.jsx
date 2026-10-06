@@ -16,17 +16,21 @@ const RoleBarChart = ({ recommendations }) => {
         <BarChart
           layout="vertical"
           data={data}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
         >
-          <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-          <XAxis type="number" domain={[0, 100]} />
-          <YAxis dataKey="role" type="category" width={120} tick={{ fontSize: 12 }} />
-          <Tooltip cursor={{ fill: 'transparent' }} />
-          <Bar dataKey="score" radius={[0, 4, 4, 0]}>
+          <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#f1f5f9" />
+          <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 11, fill: '#64748b' }} unit="%" />
+          <YAxis dataKey="role" type="category" width={130} tick={{ fontSize: 11, fill: '#334155', fontWeight: 600 }} />
+          <Tooltip 
+            cursor={{ fill: '#f8fafc', opacity: 0.7 }}
+            formatter={(val) => [`${val}%`, 'Match Score']}
+            contentStyle={{ backgroundColor: '#ffffff', borderRadius: '16px', border: '1px solid #e2e8f0', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', fontSize: '12px' }}
+          />
+          <Bar dataKey="score" radius={[0, 8, 8, 0]} barSize={18}>
             {data.map((entry, index) => (
               <Cell 
                 key={`cell-${index}`} 
-                fill={entry.score >= 80 ? '#10b981' : entry.score >= 60 ? '#3b82f6' : '#8b5cf6'} 
+                fill={entry.score >= 80 ? '#10b981' : entry.score >= 60 ? '#6366f1' : entry.score >= 40 ? '#8b5cf6' : '#94a3b8'} 
               />
             ))}
           </Bar>

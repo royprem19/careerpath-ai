@@ -187,57 +187,62 @@ const AuthPage = () => {
 
   return (
     <div className="min-h-[85vh] flex items-center justify-center px-4 py-12">
-      <div className="max-w-xl w-full bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+      <div className="max-w-xl w-full glass-card rounded-3xl shadow-2xl shadow-indigo-500/10 border border-white/90 overflow-hidden">
         
         {/* Header Banner */}
-        <div className="bg-gradient-to-r from-blue-700 via-primary-600 to-indigo-700 p-8 text-white text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold text-blue-100 mb-3 backdrop-blur-xs">
-            <Sparkles size={14} className="text-yellow-300" />
-            Career Intelligence Gateway
+        <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-8 sm:p-9 text-white text-center relative overflow-hidden">
+          <div className="absolute -top-12 -right-12 w-40 h-40 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
+          <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-purple-500/20 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold text-indigo-200 mb-3 backdrop-blur-xs border border-white/10 shadow-2xs">
+              <Sparkles size={13} className="text-indigo-300" />
+              <span>Career Intelligence Gateway</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black tracking-tight">
+              {verificationSent 
+                ? 'Verify Your Email Address' 
+                : isLogin 
+                ? 'Student Sign In' 
+                : 'Create Your Student Account'}
+            </h2>
+            <p className="text-indigo-200/80 text-xs sm:text-sm mt-1.5 max-w-sm mx-auto font-medium">
+              {verificationSent
+                ? 'Account created! Please check your email and click the verification link to activate your account.'
+                : isLogin 
+                ? 'Access personalized skill gap benchmarks and predictive career roadmaps' 
+                : 'Join the intelligent workforce ecosystem connecting engineering students to industry careers'}
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            {verificationSent 
-              ? 'Verify Your Email Address' 
-              : isLogin 
-              ? 'Student Sign In' 
-              : 'Create Your Student Account'}
-          </h2>
-          <p className="text-blue-100 text-xs sm:text-sm mt-1.5 max-w-sm mx-auto">
-            {verificationSent
-              ? 'Account created! Please check your email and click the verification link to activate your account.'
-              : isLogin 
-              ? 'Access personalized skill gap benchmarks and predictive career roadmaps' 
-              : 'Join the intelligent workforce ecosystem connecting engineering students to industry careers'}
-          </p>
         </div>
 
         {/* ==============================================================================
             SCREEN 1: EMAIL VERIFICATION REQUIRED NOTICE
         ============================================================================== */}
         {verificationSent ? (
-          <div className="p-6 sm:p-8 space-y-6 text-center">
-            <div className="w-16 h-16 rounded-full bg-blue-50 text-primary-600 flex items-center justify-center mx-auto border-2 border-primary-200">
-              <MailCheck size={36} />
+          <div className="p-7 sm:p-9 space-y-6 text-center">
+            <div className="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mx-auto border border-indigo-200/80 shadow-2xs">
+              <MailCheck size={32} />
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl font-extrabold text-gray-900">Check Your Inbox</h3>
-              <p className="text-xs sm:text-sm text-gray-600 max-w-md mx-auto">
+              <h3 className="text-xl font-black text-slate-900">Check Your Inbox</h3>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto font-medium">
                 Account created! We've sent a secure, time-limited verification link to:
               </p>
-              <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl inline-block max-w-full">
-                <span className="font-mono text-sm font-bold text-primary-700">{registeredEmail}</span>
+              <div className="bg-slate-50/80 border border-slate-200 p-3 rounded-2xl inline-block max-w-full">
+                <span className="font-mono text-sm font-bold text-indigo-700">{registeredEmail}</span>
               </div>
-              <p className="text-xs text-gray-500 pt-2">
+              <p className="text-xs text-slate-500 pt-2 font-medium">
                 Click the verification link in the email to activate your account. You will not be able to log in or access career benchmarks until your email is verified.
               </p>
-              <p className="text-[11px] text-rose-500 font-semibold">
+              <p className="text-[11px] text-rose-500 font-bold">
                 ⏱️ Link expires in 30 minutes.
               </p>
             </div>
 
             {resendMsg && (
-              <div className="p-3.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-800 text-xs sm:text-sm">
+              <div className="p-3.5 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-800 text-xs sm:text-sm font-medium">
                 {resendMsg}
               </div>
             )}
@@ -247,10 +252,10 @@ const AuthPage = () => {
                 type="button"
                 onClick={() => handleResendVerification(registeredEmail)}
                 disabled={isResending || cooldown > 0}
-                className={`w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all ${
+                className={`w-full py-3.5 px-4 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all ${
                   cooldown > 0
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'
-                    : 'bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 shadow-2xs'
+                    ? 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200'
+                    : 'bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-200 shadow-2xs'
                 }`}
               >
                 <RotateCw size={15} className={isResending ? 'animate-spin' : ''} />
@@ -269,7 +274,7 @@ const AuthPage = () => {
                   setErrorMsg('');
                   setSuccessMsg('');
                 }}
-                className="w-full py-3 px-4 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-1.5"
+                className="w-full py-3.5 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md shadow-slate-900/10 transition-all flex items-center justify-center gap-2"
               >
                 <LogIn size={15} /> Back to Sign In
               </button>
@@ -281,14 +286,14 @@ const AuthPage = () => {
           ============================================================================== */
           <>
             {/* Tab Switcher */}
-            <div className="flex border-b border-gray-100 bg-gray-50/50">
+            <div className="flex border-b border-slate-100 bg-slate-50/70 p-2 gap-2">
               <button
                 type="button"
                 onClick={() => { setIsLogin(true); setErrorMsg(''); setUnverifiedLoginEmail(''); }}
-                className={`flex-1 py-3.5 text-sm font-bold text-center transition-all ${
+                className={`flex-1 py-3 text-xs sm:text-sm font-black text-center rounded-2xl transition-all ${
                   isLogin 
-                    ? 'bg-white text-primary-600 border-b-2 border-primary-600 shadow-xs' 
-                    : 'text-gray-500 hover:text-gray-800'
+                    ? 'bg-white text-slate-900 shadow-sm border border-slate-200/60' 
+                    : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
                 Sign In
@@ -296,34 +301,34 @@ const AuthPage = () => {
               <button
                 type="button"
                 onClick={() => { setIsLogin(false); setErrorMsg(''); setUnverifiedLoginEmail(''); }}
-                className={`flex-1 py-3.5 text-sm font-bold text-center transition-all ${
+                className={`flex-1 py-3 text-xs sm:text-sm font-black text-center rounded-2xl transition-all ${
                   !isLogin 
-                    ? 'bg-white text-primary-600 border-b-2 border-primary-600 shadow-xs' 
-                    : 'text-gray-500 hover:text-gray-800'
+                    ? 'bg-white text-slate-900 shadow-sm border border-slate-200/60' 
+                    : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
                 Create Account
               </button>
             </div>
 
-            <div className="p-6 sm:p-8 space-y-6">
+            <div className="p-7 sm:p-9 space-y-6">
 
               {errorMsg && (
-                <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm space-y-2">
+                <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs sm:text-sm space-y-2">
                   <div className="flex items-center gap-2.5">
-                    <AlertCircle size={17} className="shrink-0 text-red-600" />
-                    <span className="font-medium">{errorMsg}</span>
+                    <AlertCircle size={17} className="shrink-0 text-rose-600" />
+                    <span className="font-semibold">{errorMsg}</span>
                   </div>
 
-                  {/* Quick Resend button for unverified accounts trying to log in */}
+                  {/* Quick Resend button for unverified accounts */}
                   {unverifiedLoginEmail && (
-                    <div className="pt-2 border-t border-red-200/60 flex items-center justify-between">
-                      <span className="text-[11px] text-red-600">Need a fresh activation link?</span>
+                    <div className="pt-2 border-t border-rose-200/60 flex items-center justify-between">
+                      <span className="text-[11px] text-rose-600">Need a fresh activation link?</span>
                       <button
                         type="button"
                         onClick={() => handleResendVerification(unverifiedLoginEmail)}
                         disabled={isResending || cooldown > 0}
-                        className="text-xs font-bold text-primary-700 hover:underline flex items-center gap-1"
+                        className="text-xs font-bold text-indigo-700 hover:underline flex items-center gap-1"
                       >
                         <RotateCw size={12} className={isResending ? 'animate-spin' : ''} />
                         {cooldown > 0 ? `Resend (${cooldown}s)` : 'Resend Verification Link'}
@@ -333,15 +338,15 @@ const AuthPage = () => {
 
                   {/* Quick switch to login if account already exists */}
                   {errorMsg.toLowerCase().includes('already exists') && (
-                    <div className="pt-2 border-t border-red-200/60 flex items-center justify-between">
-                      <span className="text-[11px] text-red-600 font-medium">Already registered?</span>
+                    <div className="pt-2 border-t border-rose-200/60 flex items-center justify-between">
+                      <span className="text-[11px] text-rose-600 font-medium">Already registered?</span>
                       <button
                         type="button"
                         onClick={() => {
                           setIsLogin(true);
                           setErrorMsg('');
                         }}
-                        className="text-xs font-bold text-primary-700 hover:underline flex items-center gap-1"
+                        className="text-xs font-bold text-indigo-700 hover:underline flex items-center gap-1"
                       >
                         <LogIn size={12} /> Switch to Sign In
                       </button>
@@ -351,14 +356,14 @@ const AuthPage = () => {
               )}
 
               {resendMsg && (
-                <div className="p-3.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-800 text-xs sm:text-sm flex items-center gap-2">
-                  <CheckCircle2 size={16} className="shrink-0 text-blue-600" />
+                <div className="p-4 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-800 text-xs sm:text-sm flex items-center gap-2 font-medium">
+                  <CheckCircle2 size={16} className="shrink-0 text-indigo-600" />
                   <span>{resendMsg}</span>
                 </div>
               )}
 
               {successMsg && (
-                <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-2.5 text-emerald-800 text-xs sm:text-sm">
+                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center gap-2.5 text-emerald-800 text-xs sm:text-sm font-medium">
                   <CheckCircle2 size={17} className="shrink-0 text-emerald-600" />
                   <span>{successMsg}</span>
                 </div>
@@ -370,16 +375,16 @@ const AuthPage = () => {
                   <>
                     {/* Full Name */}
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1">Full Name</label>
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">Full Name</label>
                       <div className="relative">
-                        <User size={16} className="absolute left-3.5 top-3 text-gray-400" />
+                        <User size={16} className="absolute left-3.5 top-3.5 text-slate-400" />
                         <input
                           type="text"
                           required
                           value={userName}
                           onChange={(e) => setUserName(e.target.value)}
                           placeholder="e.g. Rahul Sharma"
-                          className="pl-10 w-full p-2.5 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                          className="pl-10 w-full p-3 text-sm bg-white/90 border border-slate-200/90 rounded-2xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none transition-all shadow-2xs text-slate-800 placeholder-slate-400"
                         />
                       </div>
                     </div>
@@ -387,11 +392,11 @@ const AuthPage = () => {
                     {/* University Selection */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-semibold text-gray-700 mb-1">College / University</label>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">College / University</label>
                         <select
                           value={institution}
                           onChange={(e) => setInstitution(e.target.value)}
-                          className="w-full p-2.5 text-xs sm:text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
+                          className="w-full p-3 text-xs sm:text-sm bg-white/90 border border-slate-200/90 rounded-2xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none transition-all shadow-2xs text-slate-800"
                         >
                           {INDIAN_UNIVERSITIES.map(u => (
                             <option key={u} value={u}>{u}</option>
@@ -400,11 +405,11 @@ const AuthPage = () => {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-gray-700 mb-1">Department</label>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">Department</label>
                         <select
                           value={department}
                           onChange={(e) => setDepartment(e.target.value)}
-                          className="w-full p-2.5 text-xs sm:text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
+                          className="w-full p-3 text-xs sm:text-sm bg-white/90 border border-slate-200/90 rounded-2xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none transition-all shadow-2xs text-slate-800"
                         >
                           {DEPARTMENTS.map(d => (
                             <option key={d} value={d}>{d}</option>
@@ -416,18 +421,18 @@ const AuthPage = () => {
                     {/* Conditional Custom College/University Field */}
                     {institution === 'Other' && (
                       <div>
-                        <label className="block text-xs font-semibold text-gray-700 mb-1">
-                          Enter College / University Name <span className="text-red-500">*</span>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                          Enter College / University Name <span className="text-rose-500">*</span>
                         </label>
                         <div className="relative">
-                          <School size={16} className="absolute left-3.5 top-3 text-gray-400" />
+                          <School size={16} className="absolute left-3.5 top-3.5 text-slate-400" />
                           <input
                             type="text"
                             required
                             value={customInstitution}
                             onChange={(e) => setCustomInstitution(e.target.value)}
                             placeholder="e.g. SRM Institute of Science & Technology, Chennai"
-                            className="pl-10 w-full p-2.5 text-sm border border-primary-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-blue-50/20"
+                            className="pl-10 w-full p-3 text-sm border border-indigo-300 rounded-2xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent bg-indigo-50/30 text-slate-800 outline-none"
                           />
                         </div>
                       </div>
@@ -435,11 +440,11 @@ const AuthPage = () => {
 
                     {/* Graduation Year */}
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1">Expected Graduation Year</label>
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">Expected Graduation Year</label>
                       <select
                         value={gradYear}
                         onChange={(e) => setGradYear(e.target.value)}
-                        className="w-full p-2.5 text-xs sm:text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
+                        className="w-full p-3 text-xs sm:text-sm bg-white/90 border border-slate-200/90 rounded-2xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none transition-all shadow-2xs text-slate-800"
                       >
                         {['2024', '2025', '2026', '2027', '2028'].map(yr => (
                           <option key={yr} value={yr}>{yr}</option>
@@ -451,14 +456,14 @@ const AuthPage = () => {
 
                 {/* Email Address */}
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-xs font-semibold text-gray-700">Email Address</label>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700">Email Address</label>
                     {domainSuggestion && (
-                      <span className="text-[11px] text-amber-600 font-medium animate-pulse">Typo detected</span>
+                      <span className="text-[11px] text-amber-600 font-bold animate-pulse">Typo detected</span>
                     )}
                   </div>
                   <div className="relative">
-                    <Mail size={16} className="absolute left-3.5 top-3 text-gray-400" />
+                    <Mail size={16} className="absolute left-3.5 top-3.5 text-slate-400" />
                     <input
                       type="email"
                       required
@@ -468,15 +473,15 @@ const AuthPage = () => {
                         setErrorMsg('');
                       }}
                       placeholder="student@college.edu.in"
-                      className={`pl-10 w-full p-2.5 text-sm border rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors ${
-                        domainSuggestion ? 'border-amber-400 bg-amber-50/20' : 'border-gray-200'
+                      className={`pl-10 w-full p-3 text-sm bg-white/90 border rounded-2xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none transition-all shadow-2xs text-slate-800 placeholder-slate-400 ${
+                        domainSuggestion ? 'border-amber-400 bg-amber-50/20' : 'border-slate-200/90'
                       }`}
                     />
                   </div>
 
                   {/* Inline Domain Typo Suggestion Pill */}
                   {domainSuggestion && (
-                    <div className="mt-2 p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-center justify-between shadow-xs">
+                    <div className="mt-2.5 p-3 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-center justify-between shadow-2xs">
                       <div className="flex items-center gap-1.5 overflow-hidden">
                         <AlertCircle size={14} className="shrink-0 text-amber-600" />
                         <span className="truncate">
@@ -489,7 +494,7 @@ const AuthPage = () => {
                           setEmail(domainSuggestion.suggestedEmail);
                           setErrorMsg('');
                         }}
-                        className="ml-2 shrink-0 px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg text-[11px] transition shadow-xs"
+                        className="ml-2 shrink-0 px-3 py-1 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-[11px] transition shadow-xs"
                       >
                         Fix to {KNOWN_EMAIL_TYPOS[domainSuggestion.invalidDomain]}
                       </button>
@@ -499,16 +504,16 @@ const AuthPage = () => {
 
                 {/* Password */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Password</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">Password</label>
                   <div className="relative">
-                    <Lock size={16} className="absolute left-3.5 top-3 text-gray-400" />
+                    <Lock size={16} className="absolute left-3.5 top-3.5 text-slate-400" />
                     <input
                       type="password"
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••••••"
-                      className="pl-10 w-full p-2.5 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      className="pl-10 w-full p-3 text-sm bg-white/90 border border-slate-200/90 rounded-2xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none transition-all shadow-2xs text-slate-800 placeholder-slate-400"
                     />
                   </div>
                 </div>
@@ -516,7 +521,7 @@ const AuthPage = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 px-4 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center"
+                  className="w-full py-4 px-6 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md shadow-slate-900/10 hover:shadow-xl hover:scale-[1.01] transition-all flex items-center justify-center mt-2"
                 >
                   {loading ? (
                     <div className="flex items-center gap-2">
@@ -533,7 +538,7 @@ const AuthPage = () => {
               </form>
 
               {!isLogin && (
-                <p className="text-[11px] text-gray-500 text-center">
+                <p className="text-[11px] text-slate-400 text-center font-medium">
                   By creating an account, a verification link will be sent to your email to prove ownership before activation.
                 </p>
               )}

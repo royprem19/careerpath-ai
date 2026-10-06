@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
-import { Search, ChevronRight, Briefcase, IndianRupee, Clock, AlertCircle } from 'lucide-react';
+import { Search, ChevronRight, Briefcase, IndianRupee, Clock, AlertCircle, Sparkles, Filter } from 'lucide-react';
 import { getRoles } from '../services/api';
 
 const RoleSelection = () => {
   const [roles, setRoles] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
   const { userProfile, setSelectedRole } = useAppContext();
@@ -33,11 +34,16 @@ const RoleSelection = () => {
     fetchRoles();
   }, []);
 
-  const filteredRoles = roles.filter(role => 
-    (role.title && role.title.toLowerCase().includes(searchTerm.toLowerCase())) || 
-    (role.description && role.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
-    (role.category && role.category.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
+  const categories = ['All', ...new Set(roles.map(r => r.category).filter(Boolean))];
+
+  const filteredRoles = roles.filter(role => {
+    const matchesCategory = selectedCategory === 'All' || role.category === selectedCategory;
+    const matchesSearch = 
+      (role.title && role.title.toLowerCase().includes(searchTerm.toLowerCase())) || 
+      (role.description && role.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (role.category && role.category.toLowerCase().includes(searchTerm.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
 
   const handleSelectRole = (role) => {
     setSelectedRole(role);
@@ -49,15 +55,23 @@ const RoleSelection = () => {
   };
 
   return (
-    <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 py-10">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-10">
+      
+      {/* Header Bar */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-2">
-            Target Occupation Benchmark
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-3 shadow-2xs">
+            <Sparkles size={13} className="text-indigo-600" />
+            <span>Target Occupation Benchmark</span>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Select Target Role</h1>
-          <p className="text-gray-600">Choose an industry role to benchmark your skills, quantify the gap, and generate a customized roadmap.</p>
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-2">
+            Select Target Role
+          </h1>
+          <p className="text-slate-500 font-medium text-sm sm:text-base max-w-2xl">
+            Choose an industry role to benchmark your skills, quantify the gap, and generate a customized roadmap.
+          </p>
         </div>
+        
         <button
           onClick={() => {
             if (roles.length > 0) {
@@ -69,36 +83,59 @@ const RoleSelection = () => {
               navigate('/dashboard');
             }
           }}
-          className="py-2.5 px-6 rounded-xl text-primary-700 bg-primary-50 border border-primary-200 hover:bg-primary-100 font-semibold transition-colors whitespace-nowrap text-sm"
+          className="py-3 px-6 rounded-2xl border-2 border-indigo-300 hover:border-indigo-400 text-indigo-700 bg-white hover:bg-indigo-50/60 font-bold transition-all shadow-2xs whitespace-nowrap text-xs sm:text-sm self-start md:self-auto"
         >
           Compare All Roles
         </button>
       </div>
 
       {errorMsg && (
-        <div className="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-center gap-3 text-amber-800 text-sm">
-          <AlertCircle size={18} className="shrink-0 text-amber-600" />
+        <div className="mb-6 p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-center gap-3 text-amber-900 text-sm shadow-xs font-medium">
+          <AlertCircle size={20} className="shrink-0 text-amber-600" />
           <span>{errorMsg}</span>
         </div>
       )}
 
-      <div className="relative mb-8 max-w-4xl">
-        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-          <Search size={20} className="text-gray-400" />
+      {/* Search and Filters */}
+      <div className="space-y-4 mb-8">
+        <div className="relative max-w-4xl">
+          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+            <Search size={20} />
+          </div>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search by title, category, or skills (e.g. Data Scientist, Cloud, DevOps)..."
+            className="pl-12 pr-4 py-3.5 block w-full rounded-2xl border border-slate-200/90 bg-white/90 focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none shadow-sm text-sm sm:text-base text-slate-800 placeholder-slate-400 transition-all"
+          />
         </div>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search by title, category, or skill (e.g. Data Scientist, Cloud, DevOps)..."
-          className="pl-11 block w-full border-gray-200 rounded-xl border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 p-3.5 shadow-sm text-base bg-white"
-        />
+
+        {/* Category Pills */}
+        {categories.length > 1 && (
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+            <Filter size={15} className="text-slate-400 shrink-0 ml-1 mr-1" />
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`text-xs font-bold px-3.5 py-1.5 rounded-xl whitespace-nowrap transition-all shadow-2xs ${
+                  selectedCategory === cat
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'bg-white/80 text-slate-600 hover:bg-white border border-slate-200/80 hover:text-slate-900'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {loading ? (
-        <div className="flex flex-col items-center justify-center py-24 space-y-4">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
-          <p className="text-gray-500 text-sm font-medium">Fetching real industry roles from Supabase...</p>
+        <div className="flex flex-col items-center justify-center py-24 space-y-4 glass-card rounded-3xl border border-white/90">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+          <p className="text-slate-500 text-sm font-semibold">Fetching real industry roles from Supabase...</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -108,45 +145,45 @@ const RoleSelection = () => {
               <div 
                 key={role.id}
                 onClick={() => handleSelectRole(role)}
-                className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary-300 cursor-pointer transition-all flex flex-col justify-between group"
+                className="glass-card glass-card-hover rounded-3xl p-6 sm:p-7 border border-white/90 shadow-xl shadow-indigo-500/5 cursor-pointer transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="bg-primary-50 w-11 h-11 rounded-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                    <div className="w-12 h-12 rounded-2xl bg-indigo-50/90 text-indigo-600 flex items-center justify-center border border-indigo-100 group-hover:bg-slate-900 group-hover:text-white transition-all shadow-2xs">
                       <Briefcase size={22} />
                     </div>
                     {role.category && (
-                      <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-indigo-700 bg-indigo-50/90 border border-indigo-200/70 px-2.5 py-1 rounded-full shadow-2xs">
                         {role.category}
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                  <h3 className="text-lg font-black text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
                     {role.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 text-sm line-clamp-2">
+                  <p className="text-slate-500 mb-5 text-xs sm:text-sm line-clamp-2 leading-relaxed font-normal">
                     {role.description}
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-4 border-t border-gray-50">
-                  <div className="flex items-center justify-between text-xs text-gray-500 font-medium">
-                    <span className="flex items-center gap-1">
-                      <IndianRupee size={13} className="text-emerald-600" />
+                <div className="space-y-3 pt-4 border-t border-slate-100/90">
+                  <div className="flex items-center justify-between text-xs font-semibold text-slate-600">
+                    <span className="flex items-center gap-1 text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-100">
+                      <IndianRupee size={12} />
                       {role.avg_salary || 'Competitive'}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Clock size={13} />
+                    <span className="flex items-center gap-1 text-slate-500 bg-slate-50 px-2 py-0.5 rounded-lg border border-slate-200/60">
+                      <Clock size={12} />
                       {role.experience_range || '0-2 yrs'}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between pt-1">
-                    <span className="text-xs font-semibold text-primary-700 bg-primary-50 px-2 py-0.5 rounded-md">
+                    <span className="text-xs font-bold text-indigo-700 bg-indigo-50/90 px-2.5 py-1 rounded-xl border border-indigo-200/60 shadow-2xs">
                       {skillCount} Skills Defined
                     </span>
-                    <span className="flex items-center text-xs font-semibold text-primary-600 group-hover:translate-x-1 transition-transform">
-                      Analyze Fit <ChevronRight size={16} />
+                    <span className="flex items-center text-xs font-black text-slate-900 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all">
+                      Analyze Fit <ChevronRight size={15} />
                     </span>
                   </div>
                 </div>
@@ -154,11 +191,11 @@ const RoleSelection = () => {
             );
           })}
           {filteredRoles.length === 0 && (
-            <div className="col-span-full text-center py-16 bg-white rounded-2xl border border-gray-100 p-8">
-              <p className="text-gray-500 text-base mb-2">No roles found matching "{searchTerm}".</p>
+            <div className="col-span-full text-center py-16 glass-card rounded-3xl border border-white/90 p-8">
+              <p className="text-slate-500 text-base mb-3 font-semibold">No roles found matching "{searchTerm}".</p>
               <button 
-                onClick={() => setSearchTerm('')}
-                className="text-primary-600 font-semibold text-sm hover:underline"
+                onClick={() => { setSearchTerm(''); setSelectedCategory('All'); }}
+                className="text-indigo-600 font-bold text-sm hover:underline"
               >
                 Clear Search Filter
               </button>

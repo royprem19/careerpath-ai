@@ -9,16 +9,18 @@ import Dashboard from './pages/Dashboard';
 import AuthPage from './pages/AuthPage';
 import UserProfilePage from './pages/UserProfilePage';
 import VerifyEmailPage from './pages/VerifyEmailPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
     <AppProvider>
       <Router>
-        <div className="min-h-screen flex flex-col font-sans text-slate-900 bg-slate-50">
+        <div className="min-h-screen flex flex-col font-sans text-slate-900 mesh-bg selection:bg-indigo-500 selection:text-white">
           <Navbar />
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<UploadPage />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="/profile" element={<ProfileReview />} />
               <Route path="/roles" element={<RoleSelection />} />
               <Route path="/dashboard" element={<Dashboard />} />

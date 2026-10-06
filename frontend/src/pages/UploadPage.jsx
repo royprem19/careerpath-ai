@@ -121,19 +121,19 @@ const UploadPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-8 pb-20">
+    <div className="min-h-screen pt-8 pb-20">
       <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Hero Title */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100/80 border border-blue-200 text-blue-800 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Sparkles size={14} className="text-primary-600" />
-            <span>Intelligent Career & Talent Ecosystem</span>
+        <div className="text-center mb-7">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-indigo-100/70 border border-indigo-200/80 text-indigo-800 text-[11px] font-bold uppercase tracking-wider mb-4 shadow-2xs">
+            <Sparkles size={13} className="text-indigo-600 fill-indigo-400/30" />
+            <span>INTELLIGENT CAREER & TALENT ECOSYSTEM</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">
-            AI-Powered <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-indigo-600 to-accent-600">Career Intelligence</span>
+          <h1 className="text-3xl sm:text-5xl md:text-[52px] font-black text-slate-900 mb-3 tracking-tight leading-tight">
+            AI-Powered <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 drop-shadow-sm">Career Intelligence</span>
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
             Bridge the industry skill gap with real-world Indian job demand data, quantified role fit analysis, and tailored learning roadmaps.
           </p>
         </div>
@@ -160,7 +160,7 @@ const UploadPage = () => {
                 <button
                   type="button"
                   onClick={requireAuthRedirect}
-                  className="px-4 py-2 text-xs font-bold rounded-xl bg-primary-600 hover:bg-primary-700 text-white shadow-xs transition-colors flex items-center gap-1.5"
+                  className="px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-xs transition-colors flex items-center gap-1.5"
                 >
                   <LogIn size={14} /> Sign In / Register
                 </button>
@@ -169,21 +169,24 @@ const UploadPage = () => {
           </div>
         )}
 
-        {/* Logged in Welcome Badge */}
+        {/* Logged in Welcome Badge (Capsule Pill matching screenshot) */}
         {isAuthenticated && (
-          <div className="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between">
-            <div className="flex items-center gap-2.5 text-emerald-800 text-xs sm:text-sm font-semibold">
-              <CheckCircle2 size={18} className="text-emerald-600" />
-              <span>Signed in as <span className="font-bold">{currentUser?.user_name}</span> ({currentUser?.email})</span>
+          <div className="mb-7 px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl sm:rounded-full bg-emerald-50/80 border border-emerald-300/80 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2.5 text-slate-800 text-xs sm:text-sm min-w-0">
+              <CheckCircle2 size={17} className="text-emerald-600 shrink-0" />
+              <span className="truncate">
+                Signed in as <strong className="font-bold text-slate-900">{currentUser?.user_name}</strong>
+                <span className="text-slate-500 font-normal"> ({currentUser?.email})</span>
+              </span>
             </div>
-            <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+            <span className="text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full bg-emerald-900 text-white shadow-2xs shrink-0 self-end sm:self-auto">
               Candidate Active
             </span>
           </div>
         )}
 
         {errorMessage && (
-          <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 flex items-start gap-3 text-red-700 text-sm">
+          <div className="mb-6 p-4 rounded-2xl bg-red-50 border border-red-200 flex items-start gap-3 text-red-700 text-sm">
             <AlertCircle size={20} className="shrink-0 mt-0.5 text-red-500" />
             <div>
               <p className="font-semibold">Notice</p>
@@ -193,14 +196,14 @@ const UploadPage = () => {
         )}
 
         {/* Main Action Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           
           {/* Card 1: Resume Upload */}
-          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div className="glass-card rounded-3xl p-5 sm:p-7 flex flex-col justify-between shadow-xl shadow-indigo-500/5 border border-white/90">
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center">
-                  <Sparkles className="text-primary-500 mr-2" size={22} />
+              <div className="flex items-center justify-between mb-1.5">
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+                  <Sparkles className="text-indigo-500 fill-indigo-300/30" size={22} />
                   Upload Resume
                 </h2>
                 {!isAuthenticated && (
@@ -209,7 +212,7 @@ const UploadPage = () => {
                   </span>
                 )}
               </div>
-              <p className="text-gray-500 mb-6 text-xs sm:text-sm">
+              <p className="text-slate-500 mb-5 text-xs sm:text-sm">
                 Supported formats: PDF, DOCX. Our NLP parser will extract technical skills, experience, and education.
               </p>
               
@@ -230,10 +233,10 @@ const UploadPage = () => {
               disabled={isAuthenticated && (!file || isProcessing)}
               className={`w-full py-3.5 px-4 rounded-xl flex items-center justify-center font-bold text-sm transition-all ${
                 !isAuthenticated
-                  ? 'bg-primary-600 hover:bg-primary-700 text-white shadow-sm'
+                  ? 'bg-slate-600 hover:bg-slate-700 text-white shadow-sm'
                   : (!file || isProcessing)
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-primary-600 hover:bg-primary-700 text-white shadow-md hover:shadow-lg'
+                  ? 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                  : 'bg-slate-600 hover:bg-slate-700 text-white shadow-md hover:shadow-lg'
               }`}
             >
               {!isAuthenticated ? (
@@ -254,10 +257,11 @@ const UploadPage = () => {
           </div>
 
           {/* Card 2: Manual Skills */}
-          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div className="glass-card rounded-3xl p-5 sm:p-7 flex flex-col justify-between shadow-xl shadow-indigo-500/5 border border-white/90">
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+              <div className="flex items-center justify-between mb-1.5">
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+                  <span className="text-indigo-600 font-mono text-xl font-bold">≡</span>
                   Enter Skills Manually
                 </h2>
                 {!isAuthenticated && (
@@ -266,7 +270,7 @@ const UploadPage = () => {
                   </span>
                 )}
               </div>
-              <p className="text-gray-500 mb-6 text-xs sm:text-sm">
+              <p className="text-slate-500 mb-5 text-xs sm:text-sm">
                 Don't have a resume document handy? Paste your technical skills separated by commas or line breaks.
               </p>
               <div className="mb-6 relative">
@@ -275,11 +279,11 @@ const UploadPage = () => {
                   disabled={!isAuthenticated}
                   onChange={(e) => setManualSkills(e.target.value)}
                   onClick={() => { if (!isAuthenticated) requireAuthRedirect(); }}
-                  placeholder={isAuthenticated ? "e.g. Python, SQL, React, FastAPI, Machine Learning, Docker, Pandas..." : "Sign in to enter skills manually..."}
-                  className={`w-full h-44 p-4 border rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none resize-none text-sm ${
+                  placeholder={isAuthenticated ? "e.g., Python, SQL, React, FastAPI, Machine Learning, Docker, Pandas..." : "Sign in to enter skills manually..."}
+                  className={`w-full min-h-[168px] p-4 border rounded-2xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none resize-none text-sm transition-all ${
                     !isAuthenticated 
-                      ? 'bg-gray-50/80 border-gray-200 text-gray-400 cursor-not-allowed' 
-                      : 'border-gray-200 text-gray-800'
+                      ? 'bg-slate-50/80 border-slate-200 text-slate-400 cursor-not-allowed' 
+                      : 'bg-slate-50/80 border-slate-200 text-slate-800 focus:bg-white'
                   }`}
                 />
               </div>
@@ -291,19 +295,19 @@ const UploadPage = () => {
               disabled={isAuthenticated && (!manualSkills.trim() || isProcessing)}
               className={`w-full py-3.5 px-4 rounded-xl flex items-center justify-center font-bold text-sm transition-all ${
                 !isAuthenticated
-                  ? 'border border-primary-200 bg-primary-50 text-primary-700 hover:bg-primary-100'
+                  ? 'border-2 border-indigo-300 text-indigo-700 bg-white hover:bg-indigo-50/60 shadow-2xs'
                   : (!manualSkills.trim() || isProcessing)
-                  ? 'border border-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'border border-primary-300 bg-primary-50 text-primary-700 hover:bg-primary-100'
+                  ? 'border-2 border-slate-200 text-slate-400 bg-white cursor-not-allowed'
+                  : 'border-2 border-indigo-300 hover:border-indigo-400 text-indigo-700 bg-white hover:bg-indigo-50/60 shadow-2xs'
               }`}
             >
               {!isAuthenticated ? (
                 <>
-                  <Lock size={15} className="mr-1.5" /> Sign In to Submit Skills
+                  <Lock size={15} className="mr-1.5" /> Sign In to Enter Skills
                 </>
               ) : isProcessing ? (
                 <div className="flex items-center gap-2">
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-600"></div>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-indigo-600"></div>
                   <span>Normalizing Skills...</span>
                 </div>
               ) : (
@@ -313,7 +317,6 @@ const UploadPage = () => {
               )}
             </button>
           </div>
-
         </div>
 
         {/* ==============================================================================
@@ -339,98 +342,98 @@ const UploadPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
             
             {/* Step 1 */}
-            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 to-blue-600" />
+            <div className="glass-card glass-card-hover rounded-3xl p-7 border border-white/90 shadow-xl shadow-indigo-500/5 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-600" />
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-extrabold tracking-wider px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-100">
+                  <span className="text-[10px] font-black tracking-wider px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 shadow-2xs">
                     STEP 01
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs border border-blue-100/60">
                     <FileText size={20} />
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Ingest & Extract</h3>
-                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-4">
+                <h3 className="text-lg font-black text-slate-900 mb-2">Ingest & Extract</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4 font-normal">
                   Upload your PDF/DOCX resume or enter skills manually. Our multi-format parsing engine isolates technical competencies, degrees, and work history.
                 </p>
               </div>
-              <div className="pt-3 border-t border-gray-50 flex flex-wrap gap-1.5">
-                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">PyMuPDF</span>
-                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">DOCX Parsing</span>
-                <span className="text-[10px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">NLP Filter</span>
+              <div className="pt-3 border-t border-slate-100/80 flex flex-wrap gap-1.5">
+                <span className="text-[10px] font-bold bg-slate-100/80 text-slate-600 px-2.5 py-1 rounded-lg">PyMuPDF</span>
+                <span className="text-[10px] font-bold bg-slate-100/80 text-slate-600 px-2.5 py-1 rounded-lg">DOCX Parsing</span>
+                <span className="text-[10px] font-bold bg-blue-50 text-blue-700 px-2.5 py-1 rounded-lg border border-blue-100/60">NLP Filter</span>
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 to-indigo-600" />
+            <div className="glass-card glass-card-hover rounded-3xl p-7 border border-white/90 shadow-xl shadow-indigo-500/5 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-600" />
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-extrabold tracking-wider px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-700 border border-indigo-100">
+                  <span className="text-[10px] font-black tracking-wider px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-100 shadow-2xs">
                     STEP 02
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-11 h-11 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs border border-indigo-100/60">
                     <Cpu size={20} />
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">AI Normalization</h3>
-                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-4">
-                  Non-standard acronyms and shorthand skills (<code className="text-indigo-600 font-mono text-[11px]">k8s</code>, <code className="text-indigo-600 font-mono text-[11px]">ML</code>, <code className="text-indigo-600 font-mono text-[11px]">Postgres</code>) are normalized against 300+ standard tech taxonomies using RapidFuzz.
+                <h3 className="text-lg font-black text-slate-900 mb-2">AI Normalization</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4 font-normal">
+                  Non-standard acronyms and shorthand skills (<code className="text-indigo-600 font-mono text-[11px] font-bold">k8s</code>, <code className="text-indigo-600 font-mono text-[11px] font-bold">ML</code>, <code className="text-indigo-600 font-mono text-[11px] font-bold">Postgres</code>) are normalized against 300+ standard tech taxonomies using RapidFuzz.
                 </p>
               </div>
-              <div className="pt-3 border-t border-gray-50 flex flex-wrap gap-1.5">
-                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">RapidFuzz</span>
-                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">Synonym Taxonomy</span>
-                <span className="text-[10px] font-semibold bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-md">Deduplication</span>
+              <div className="pt-3 border-t border-slate-100/80 flex flex-wrap gap-1.5">
+                <span className="text-[10px] font-bold bg-slate-100/80 text-slate-600 px-2.5 py-1 rounded-lg">RapidFuzz</span>
+                <span className="text-[10px] font-bold bg-slate-100/80 text-slate-600 px-2.5 py-1 rounded-lg">Synonym Taxonomy</span>
+                <span className="text-[10px] font-bold bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-lg border border-indigo-100/60">Deduplication</span>
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-500 to-purple-600" />
+            <div className="glass-card glass-card-hover rounded-3xl p-7 border border-white/90 shadow-xl shadow-indigo-500/5 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-500 to-pink-600" />
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-extrabold tracking-wider px-2.5 py-1 rounded-md bg-purple-50 text-purple-700 border border-purple-100">
+                  <span className="text-[10px] font-black tracking-wider px-2.5 py-1 rounded-lg bg-purple-50 text-purple-700 border border-purple-100 shadow-2xs">
                     STEP 03
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-11 h-11 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs border border-purple-100/60">
                     <BarChart3 size={20} />
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Gap & Salary AI</h3>
-                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-4">
+                <h3 className="text-lg font-black text-slate-900 mb-2">Gap & Salary AI</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4 font-normal">
                   Your profile is evaluated against 80+ Indian engineering roles. Essential vs optional skills are quantified, and CTC compensation is predicted using our trained Ridge ML regressor.
                 </p>
               </div>
-              <div className="pt-3 border-t border-gray-50 flex flex-wrap gap-1.5">
-                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">Fit Score %</span>
-                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">Ridge ML (R²=0.72)</span>
-                <span className="text-[10px] font-semibold bg-purple-50 text-purple-700 px-2 py-0.5 rounded-md">Indian CTC Bands</span>
+              <div className="pt-3 border-t border-slate-100/80 flex flex-wrap gap-1.5">
+                <span className="text-[10px] font-bold bg-slate-100/80 text-slate-600 px-2.5 py-1 rounded-lg">Fit Score %</span>
+                <span className="text-[10px] font-bold bg-slate-100/80 text-slate-600 px-2.5 py-1 rounded-lg">Ridge ML (R²=0.72)</span>
+                <span className="text-[10px] font-bold bg-purple-50 text-purple-700 px-2.5 py-1 rounded-lg border border-purple-100/60">Indian CTC Bands</span>
               </div>
             </div>
 
             {/* Step 4 */}
-            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 to-emerald-600" />
+            <div className="glass-card glass-card-hover rounded-3xl p-7 border border-white/90 shadow-xl shadow-indigo-500/5 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-600" />
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-extrabold tracking-wider px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-100">
+                  <span className="text-[10px] font-black tracking-wider px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-100 shadow-2xs">
                     STEP 04
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs border border-emerald-100/60">
                     <Compass size={20} />
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Targeted Roadmap</h3>
-                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-4">
+                <h3 className="text-lg font-black text-slate-900 mb-2">Targeted Roadmap</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4 font-normal">
                   Receive a structured week-by-week upskilling pathway bridging missing essential skills first. Every module pairs free verified courses (NPTEL, freeCodeCamp) with hands-on projects.
                 </p>
               </div>
-              <div className="pt-3 border-t border-gray-50 flex flex-wrap gap-1.5">
-                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">NPTEL / Coursera</span>
-                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">Weekly Timeline</span>
-                <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-md">PDF Export</span>
+              <div className="pt-3 border-t border-slate-100/80 flex flex-wrap gap-1.5">
+                <span className="text-[10px] font-bold bg-slate-100/80 text-slate-600 px-2.5 py-1 rounded-lg">NPTEL / Coursera</span>
+                <span className="text-[10px] font-bold bg-slate-100/80 text-slate-600 px-2.5 py-1 rounded-lg">Weekly Timeline</span>
+                <span className="text-[10px] font-bold bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-lg border border-emerald-100/60">PDF Export</span>
               </div>
             </div>
 

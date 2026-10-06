@@ -57,36 +57,40 @@ const FileUpload = ({ onFileSelect, selectedFile, onClear, disabled = false, onD
           }
         }
       })}
-      className={`border-2 border-dashed rounded-2xl p-8 sm:p-10 flex flex-col items-center justify-center transition-all duration-200 relative ${
+      className={`border-2 border-dashed rounded-2xl p-7 sm:p-9 flex flex-col items-center justify-center transition-all duration-200 relative ${
         disabled
-          ? 'border-gray-300 bg-gray-50/70 cursor-not-allowed opacity-90'
+          ? 'border-slate-300 bg-slate-50/70 cursor-not-allowed opacity-90'
           : isDragActive
-          ? 'border-primary-500 bg-primary-50 cursor-pointer'
-          : 'border-gray-300 hover:border-primary-400 hover:bg-gray-50 cursor-pointer'
+          ? 'border-indigo-500 bg-indigo-50/60 cursor-pointer scale-[1.01]'
+          : 'border-indigo-200/90 bg-gradient-to-b from-indigo-50/40 via-purple-50/20 to-white/90 hover:border-indigo-400 hover:bg-indigo-50/30 cursor-pointer'
       }`}
     >
       <input {...getInputProps()} disabled={disabled} />
       
       {disabled && (
-        <div className="absolute top-3 right-3 bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-amber-200">
+        <div className="absolute top-3 right-3 bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-amber-200 shadow-2xs">
           <Lock size={10} /> Sign In Required
         </div>
       )}
 
-      <div className={`p-4 rounded-full mb-3 ${disabled ? 'bg-gray-200 text-gray-500' : 'bg-blue-100 text-primary-600'}`}>
-        {disabled ? <Lock size={28} /> : <Upload size={28} />}
+      <div className={`w-12 h-12 rounded-full mb-3 flex items-center justify-center transition-transform group-hover:scale-110 ${
+        disabled 
+          ? 'bg-slate-200 text-slate-500' 
+          : 'bg-gradient-to-tr from-cyan-100 via-blue-100 to-purple-100 text-blue-600 shadow-xs border border-purple-200/50'
+      }`}>
+        {disabled ? <Lock size={22} /> : <Upload size={22} />}
       </div>
-      <p className="text-base font-semibold text-gray-800 mb-1">
+      <p className="text-sm font-bold text-slate-800 mb-0.5 text-center">
         {disabled ? 'Sign In to Upload Resume' : isDragActive ? 'Drop your resume here' : 'Drag & drop your resume'}
       </p>
-      <p className="text-xs text-gray-500 mb-4">Supports PDF or DOCX up to 5MB</p>
+      <p className="text-xs text-slate-400 mb-4 text-center">Supports PDF or DOCX up to 5MB</p>
       
       <button 
         type="button"
-        className={`font-semibold py-2 px-6 rounded-xl text-xs shadow-xs transition-colors ${
+        className={`font-semibold py-1.5 px-6 rounded-xl text-xs transition-all shadow-xs ${
           disabled 
             ? 'bg-primary-600 text-white hover:bg-primary-700' 
-            : 'bg-white text-primary-600 border border-primary-200 hover:bg-primary-50'
+            : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md shadow-indigo-500/20 hover:scale-105'
         }`}
       >
         {disabled ? 'Sign In to Browse' : 'Browse Files'}

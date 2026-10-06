@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, AlertCircle, AlertTriangle, TrendingUp } from 'lucide-react';
+import { CheckCircle2, AlertCircle, AlertTriangle, TrendingUp } from 'lucide-react';
 import SkillTag from './SkillTag';
 
 const GapTable = ({ 
@@ -25,50 +25,50 @@ const GapTable = ({
   ];
 
   return (
-    <div className="overflow-x-auto bg-white rounded-xl shadow-sm border border-gray-100">
-      <table className="min-w-full divide-y divide-gray-200 text-sm">
-        <thead className="bg-slate-50">
+    <div className="overflow-x-auto rounded-2xl border border-slate-200/80 bg-white/90 shadow-2xs">
+      <table className="min-w-full divide-y divide-slate-100 text-sm">
+        <thead className="bg-slate-50/80">
           <tr>
-            <th scope="col" className="px-5 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            <th scope="col" className="px-5 py-3.5 text-left text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               Skill
             </th>
-            <th scope="col" className="px-5 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            <th scope="col" className="px-5 py-3.5 text-left text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               Audit Status
             </th>
-            <th scope="col" className="px-5 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-              Priority
+            <th scope="col" className="px-5 py-3.5 text-left text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+              Priority Tier
             </th>
-            <th scope="col" className="px-5 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            <th scope="col" className="px-5 py-3.5 text-left text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               India Market Trend
             </th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-100">
+        <tbody className="bg-white divide-y divide-slate-100/90">
           {allSkills.map((skill, idx) => {
             const vel = velMap[skill.name.toLowerCase()];
             const trendLabel = vel ? vel.trend : (skill.type === 'matched' ? 'Active in Profile' : 'Steady Industry Demand');
             const isHighGrowth = vel && (vel.velocity_score >= 80);
 
             return (
-              <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
+              <tr key={idx} className="hover:bg-slate-50/70 transition-colors">
                 <td className="px-5 py-3.5 whitespace-nowrap">
-                  <span className="font-semibold text-gray-900">{skill.name}</span>
+                  <span className="font-bold text-slate-900 text-sm">{skill.name}</span>
                 </td>
                 <td className="px-5 py-3.5 whitespace-nowrap">
-                  <div className="flex items-center text-xs font-medium">
+                  <div className="flex items-center text-xs font-bold">
                     {skill.type === 'matched' && (
-                      <span className="flex items-center text-emerald-600">
-                        <CheckCircle size={15} className="mr-1.5" /> Matched
+                      <span className="flex items-center text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-xl border border-emerald-100">
+                        <CheckCircle2 size={14} className="mr-1.5 text-emerald-600" /> Matched
                       </span>
                     )}
                     {skill.type === 'missing-essential' && (
-                      <span className="flex items-center text-rose-600 font-semibold">
-                        <AlertCircle size={15} className="mr-1.5" /> Missing Essential
+                      <span className="flex items-center text-rose-700 bg-rose-50 px-2.5 py-1 rounded-xl border border-rose-100">
+                        <AlertCircle size={14} className="mr-1.5 text-rose-600" /> Missing Essential
                       </span>
                     )}
                     {skill.type === 'missing-optional' && (
-                      <span className="flex items-center text-amber-600">
-                        <AlertTriangle size={15} className="mr-1.5" /> Missing Optional
+                      <span className="flex items-center text-amber-700 bg-amber-50 px-2.5 py-1 rounded-xl border border-amber-100">
+                        <AlertTriangle size={14} className="mr-1.5 text-amber-600" /> Missing Optional
                       </span>
                     )}
                   </div>
@@ -80,12 +80,12 @@ const GapTable = ({
                   />
                 </td>
                 <td className="px-5 py-3.5 whitespace-nowrap">
-                  <span className={`inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full font-medium ${
+                  <span className={`inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-xl font-bold ${
                     isHighGrowth 
-                      ? 'bg-rose-50 text-rose-700 border border-rose-200' 
+                      ? 'bg-rose-50 text-rose-700 border border-rose-200/80 shadow-2xs' 
                       : skill.type === 'matched'
-                      ? 'bg-emerald-50 text-emerald-700'
-                      : 'bg-slate-100 text-slate-600'
+                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-100'
+                      : 'bg-slate-100 text-slate-600 border border-slate-200/60'
                   }`}>
                     <TrendingUp size={12} className={isHighGrowth ? 'text-rose-500' : 'text-slate-400'} />
                     {trendLabel}
