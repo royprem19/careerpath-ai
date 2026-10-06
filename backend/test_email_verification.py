@@ -1,5 +1,6 @@
 import os
 import sys
+import uuid
 from pathlib import Path
 root_dir = Path(__file__).resolve().parent.parent
 if str(root_dir) not in sys.path:
@@ -23,10 +24,20 @@ r_invalid_email = client.post("/api/auth/register", json={
     "user_name": "Test User"
 })
 assert r_invalid_email.status_code in [400, 422], f"Expected 400/422 for invalid email, got {r_invalid_email.status_code}"
-print("1. [PASS] Invalid email format rejected on registration (Status:", r_invalid_email.status_code, ")")
+print("1.  [PASS] Invalid email format rejected on registration (Status:", r_invalid_email.status_code, ")")
 
-# 2. Register valid email (vanshchauhan354000@you.com) -> Account created with emailVerified = False
-test_email = "vanshchauhan354000@you.com"
+# 1b. Typo email domain (e.g. gmai.com instead of gmail.com) -> registration rejected with suggestion
+r_typo_email = client.post("/api/auth/register", json={
+    "email": "roypremt0219@gmai.com",
+    "password": "Password@123",
+    "user_name": "Prem Roy"
+})
+assert r_typo_email.status_code in [400, 422], f"Expected 400/422 for typo domain, got {r_typo_email.status_code}: {r_typo_email.text}"
+assert "gmail.com" in r_typo_email.text, f"Expected suggestion for gmail.com, got {r_typo_email.text}"
+print("1b. [PASS] Typo domain 'gmai.com' correctly rejected with suggestion: '", r_typo_email.json().get("detail"), "'")
+
+# 2. Register valid email -> Account created with emailVerified = False
+test_email = f"test_candidate_{uuid.uuid4().hex[:6]}@you.com"
 r_reg = client.post("/api/auth/register", json={
     "email": test_email,
     "password": "SecurePassword123",

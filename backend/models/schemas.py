@@ -171,7 +171,7 @@ class UserLoginRequest(BaseModel):
     @field_validator("email")
     @classmethod
     def validate_email(cls, v: str) -> str:
-        return sanitize_email(v)
+        return sanitize_email(v, validate_domain=False)
 
     @field_validator("password")
     @classmethod

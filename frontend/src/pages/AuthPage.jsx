@@ -30,6 +30,46 @@ const DEPARTMENTS = [
   "Mechanical / Multi-Disciplinary"
 ];
 
+const KNOWN_EMAIL_TYPOS = {
+  "gmai.com": "gmail.com",
+  "gamil.com": "gmail.com",
+  "gmial.com": "gmail.com",
+  "gmaill.com": "gmail.com",
+  "gmaii.com": "gmail.com",
+  "gma.com": "gmail.com",
+  "gmeil.com": "gmail.com",
+  "gmail.co": "gmail.com",
+  "gmail.cm": "gmail.com",
+  "gmal.com": "gmail.com",
+  "gemail.com": "gmail.com",
+  "yaho.com": "yahoo.com",
+  "yahooo.com": "yahoo.com",
+  "yaho.co": "yahoo.com",
+  "yhaoo.com": "yahoo.com",
+  "hotmial.com": "hotmail.com",
+  "hotmai.com": "hotmail.com",
+  "hotamil.com": "hotmail.com",
+  "outlok.com": "outlook.com",
+  "outloo.com": "outlook.com",
+  "ootlook.com": "outlook.com",
+  "icoud.com": "icloud.com",
+  "iclod.com": "icloud.com"
+};
+
+const checkEmailDomainTypo = (emailStr) => {
+  if (!emailStr || !emailStr.includes('@')) return null;
+  const parts = emailStr.trim().split('@');
+  if (parts.length !== 2) return null;
+  const domain = parts[1].toLowerCase().trim();
+  if (KNOWN_EMAIL_TYPOS[domain]) {
+    return {
+      invalidDomain: domain,
+      suggestedEmail: `${parts[0]}@${KNOWN_EMAIL_TYPOS[domain]}`
+    };
+  }
+  return null;
+};
+
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   
@@ -58,6 +98,8 @@ const AuthPage = () => {
   const { login } = useAppContext();
   const navigate = useNavigate();
 
+  const domainSuggestion = checkEmailDomainTypo(email);
+
   // Cooldown countdown timer
   useEffect(() => {
     let timer;
@@ -72,6 +114,12 @@ const AuthPage = () => {
     setErrorMsg('');
     setSuccessMsg('');
     setUnverifiedLoginEmail('');
+
+    if (!isLogin && domainSuggestion) {
+      setErrorMsg(`Invalid email domain '${domainSuggestion.invalidDomain}'. Did you mean '${domainSuggestion.suggestedEmail}'?`);
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -386,18 +434,50 @@ const AuthPage = () => {
 
                 {/* Email Address */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Email Address</label>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-xs font-semibold text-gray-700">Email Address</label>
+                    {domainSuggestion && (
+                      <span className="text-[11px] text-amber-600 font-medium animate-pulse">Typo detected</span>
+                    )}
+                  </div>
                   <div className="relative">
                     <Mail size={16} className="absolute left-3.5 top-3 text-gray-400" />
                     <input
                       type="email"
                       required
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setErrorMsg('');
+                      }}
                       placeholder="student@college.edu.in"
-                      className="pl-10 w-full p-2.5 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      className={`pl-10 w-full p-2.5 text-sm border rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors ${
+                        domainSuggestion ? 'border-amber-400 bg-amber-50/20' : 'border-gray-200'
+                      }`}
                     />
                   </div>
+
+                  {/* Inline Domain Typo Suggestion Pill */}
+                  {domainSuggestion && (
+                    <div className="mt-2 p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-center justify-between shadow-xs">
+                      <div className="flex items-center gap-1.5 overflow-hidden">
+                        <AlertCircle size={14} className="shrink-0 text-amber-600" />
+                        <span className="truncate">
+                          Did you mean <strong className="text-amber-950 font-mono">{domainSuggestion.suggestedEmail}</strong>?
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setEmail(domainSuggestion.suggestedEmail);
+                          setErrorMsg('');
+                        }}
+                        className="ml-2 shrink-0 px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg text-[11px] transition shadow-xs"
+                      >
+                        Fix to {KNOWN_EMAIL_TYPOS[domainSuggestion.invalidDomain]}
+                      </button>
+                    </div>
+                  )}
                 </div>
 
                 {/* Password */}

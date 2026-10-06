@@ -52,10 +52,10 @@ def sanitize_text(value: str, max_length: int = 500, field_name: str = "Input") 
 
     return cleaned
 
-def sanitize_email(email: str) -> str:
+def sanitize_email(email: str, validate_domain: bool = True) -> str:
     """
     Strictly validates and cleans email addresses.
-    Prevents parameter pollution and PostgREST operator injection.
+    Prevents parameter pollution, PostgREST operator injection, and typo/fake domains.
     """
     cleaned = sanitize_text(email, max_length=150, field_name="Email").lower()
     
@@ -65,6 +65,10 @@ def sanitize_email(email: str) -> str:
 
     if not EMAIL_PATTERN.match(cleaned):
         raise ValueError("Invalid email format. Please provide a standard address (e.g. name@domain.com).")
+
+    if validate_domain:
+        from backend.services.domain_validator import validate_email_domain
+        cleaned = validate_email_domain(cleaned)
 
     return cleaned
 

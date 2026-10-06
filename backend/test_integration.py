@@ -113,8 +113,9 @@ def run_tests():
     print(f"7. [PASS] POST /api/report/pdf -> Generated valid PDF ({len(res.content)} bytes)")
 
     # 8. Candidate Authentication (Dynamic registration & login, JWT verification)
+    test_cand_email = "candidate_test@iitm.ac.in"
     reg_payload = {
-        "email": "candidate_test@campus.ac.in",
+        "email": test_cand_email,
         "password": "Password@123",
         "user_name": "Rohan Patel",
         "role": "candidate",
@@ -130,12 +131,12 @@ def run_tests():
     # Verify the email via token before login
     from backend.services.auth_service import _VERIFICATION_TOKENS
     for tok, data in _VERIFICATION_TOKENS.items():
-        if data.get("email") == "candidate_test@campus.ac.in" and not data.get("used"):
+        if data.get("email") == test_cand_email and not data.get("used"):
             v_res = client.get(f"/api/auth/verify-email?token={tok}")
             assert v_res.status_code == 200
             break
 
-    res = client.post("/api/auth/login", json={"email": "candidate_test@campus.ac.in", "password": "Password@123"})
+    res = client.post("/api/auth/login", json={"email": test_cand_email, "password": "Password@123"})
     assert res.status_code == 200, f"Student login failed: {res.text}"
     auth_data = res.json()
     token = auth_data["access_token"]
