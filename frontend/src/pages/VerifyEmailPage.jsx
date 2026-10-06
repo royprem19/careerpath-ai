@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import { verifyEmail, resendVerification } from '../services/api';
 import { 
@@ -11,9 +11,12 @@ const VerifyEmailPage = () => {
   const token = searchParams.get('token');
   const navigate = useNavigate();
 
-  const [status, setStatus] = useState('loading'); // 'loading' | 'success' | 'error'
+  const [status, setStatus] = useState('loading'); // 'loading' | 'success' | 'already_verified' | 'error'
   const [message, setMessage] = useState('');
   const [verifiedEmail, setVerifiedEmail] = useState('');
+
+  // Prevent duplicate execution in React StrictMode
+  const hasRequestedRef = useRef(false);
 
   // Resend form states
   const [resendEmail, setResendEmail] = useState('');
@@ -37,6 +40,9 @@ const VerifyEmailPage = () => {
       return;
     }
 
+    if (hasRequestedRef.current) return;
+    hasRequestedRef.current = true;
+
     const performVerification = async () => {
       try {
         const res = await verifyEmail(token);
@@ -48,9 +54,16 @@ const VerifyEmailPage = () => {
         }
       } catch (err) {
         console.error('Email verification error:', err);
-        setStatus('error');
         const detail = err.response?.data?.detail || err.message || 'Verification link is invalid or has expired.';
-        setMessage(detail);
+        
+        // If the token was already used, that means the account is already verified!
+        if (detail.toLowerCase().includes('already been used') || detail.toLowerCase().includes('already verified')) {
+          setStatus('already_verified');
+          setMessage('Your email address has already been verified! Your account is active and you can sign in directly.');
+        } else {
+          setStatus('error');
+          setMessage(detail);
+        }
       }
     };
 
@@ -126,6 +139,34 @@ const VerifyEmailPage = () => {
                   className="w-full py-3.5 px-4 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
                   <LogIn size={16} /> Proceed to Sign In <ArrowRight size={16} />
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* 2b. Already Verified State */}
+          {status === 'already_verified' && (
+            <div className="space-y-5 py-4">
+              <div className="w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto border-2 border-blue-200">
+                <ShieldCheck size={36} />
+              </div>
+              
+              <div className="space-y-1.5">
+                <h3 className="text-xl font-extrabold text-gray-900">Account Already Verified!</h3>
+                <p className="text-xs sm:text-sm text-gray-600">{message}</p>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold mt-2">
+                  <CheckCircle2 size={14} className="text-emerald-600" />
+                  Your account is active & ready
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <button
+                  type="button"
+                  onClick={() => navigate('/auth')}
+                  className="w-full py-3.5 px-4 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                >
+                  <LogIn size={16} /> Sign In Now <ArrowRight size={16} />
                 </button>
               </div>
             </div>

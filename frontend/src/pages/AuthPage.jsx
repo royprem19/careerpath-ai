@@ -330,6 +330,23 @@ const AuthPage = () => {
                       </button>
                     </div>
                   )}
+
+                  {/* Quick switch to login if account already exists */}
+                  {errorMsg.toLowerCase().includes('already exists') && (
+                    <div className="pt-2 border-t border-red-200/60 flex items-center justify-between">
+                      <span className="text-[11px] text-red-600 font-medium">Already registered?</span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsLogin(true);
+                          setErrorMsg('');
+                        }}
+                        className="text-xs font-bold text-primary-700 hover:underline flex items-center gap-1"
+                      >
+                        <LogIn size={12} /> Switch to Sign In
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
 
