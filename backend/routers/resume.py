@@ -38,12 +38,29 @@ async def upload_resume(
         experience = extract_experience(text)
         certifications = extract_certifications(text)
         
+        # Uncertainty & Quality Assessment
+        text_len = len(text.strip())
+        is_scanned = text_len < 80
+        warning_msg = None
+        
+        if is_scanned and len(skills) == 0:
+            confidence = 0.1
+            warning_msg = "Low text density detected. This file appears to be a scanned image or photo without selectable text. Please manually add your skills below."
+        elif len(skills) < 3:
+            confidence = round(max(0.2, len(skills) * 0.25), 2)
+            warning_msg = f"Only {len(skills)} skill(s) detected. To ensure accurate role recommendations, please verify or add your skills below."
+        else:
+            confidence = round(min(1.0, 0.6 + (len(skills) * 0.04)), 2)
+        
         return ResumeUploadResponse(
             skills=skills,
             education=education,
             experience=experience,
             certifications=certifications,
-            raw_text=text
+            raw_text=text,
+            confidence_score=confidence,
+            is_scanned_or_low_text=is_scanned,
+            warning_message=warning_msg
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

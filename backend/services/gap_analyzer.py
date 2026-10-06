@@ -48,8 +48,21 @@ def compute_gap(
     # Market demand velocities for missing essential skills
     missing_velocities = analyze_skill_market_velocity(missing_essential[:6])
     
+    is_exploratory = fit_score < 35.0
+    if is_exploratory:
+        conf_level = "Exploratory"
+    elif fit_score < 60.0:
+        conf_level = "Moderate"
+    else:
+        conf_level = "High"
+
     # Generate explainable narrative
-    if matched_essential:
+    if is_exploratory:
+        why_str = (
+            f"Career Discovery Mode: Current alignment is {fit_score}%. Rather than jumping directly to specialized roles, "
+            f"we recommend building core competencies in {', '.join(role_essential_skills[:3])} through our accredited foundational roadmap."
+        )
+    elif matched_essential:
         matched_preview = ", ".join(matched_essential[:4])
         why_str = (
             f"You match key essential requirements including {matched_preview}. "
@@ -75,5 +88,8 @@ def compute_gap(
         matched_count=matched_cnt,
         why_this_role=why_str,
         predicted_salary=comp_pred["salary_range"],
-        skill_velocities=missing_velocities
+        skill_velocities=missing_velocities,
+        confidence_level=conf_level,
+        is_exploratory_mode=is_exploratory,
+        disclaimer="Estimated market compensation reflects median hiring data for candidates clearing technical rounds and is not a guaranteed job offer."
     )

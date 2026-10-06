@@ -53,7 +53,10 @@ const UploadPage = () => {
         education: data.education || [],
         experience: data.experience || {},
         certifications: data.certifications || [],
-        raw_text: data.raw_text || ''
+        raw_text: data.raw_text || '',
+        confidence_score: data.confidence_score !== undefined ? data.confidence_score : 1.0,
+        is_scanned_or_low_text: Boolean(data.is_scanned_or_low_text),
+        warning_message: data.warning_message || null
       });
       sessionStorage.setItem('careerpath_active_skills', JSON.stringify(data.skills || []));
       

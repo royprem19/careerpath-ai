@@ -9,7 +9,7 @@ import RoadmapTimeline from '../components/RoadmapTimeline';
 import { 
   Download, RefreshCw, ArrowLeft, Target, Info, CheckCircle2, 
   AlertCircle, Sparkles, BookOpen, ExternalLink, Award, IndianRupee,
-  UploadCloud, FileText, Briefcase
+  UploadCloud, FileText, Briefcase, Compass, ShieldCheck
 } from 'lucide-react';
 import { analyzeGap, getRecommendations, getRoadmap, downloadReport, getRoles } from '../services/api';
 
@@ -248,6 +248,29 @@ const Dashboard = () => {
         </div>
       )}
 
+      {/* Exploratory Foundation Mode Banner */}
+      {(analysisData?.is_exploratory_mode || (analysisData?.fit_score || 0) < 35) && (
+        <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 text-blue-900 mb-6 shadow-xs">
+          <div className="flex items-start gap-3.5">
+            <div className="p-2.5 bg-blue-600 text-white rounded-xl shadow-xs shrink-0 mt-0.5">
+              <Compass size={22} />
+            </div>
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <h3 className="font-bold text-base text-blue-950">Career Discovery: Foundational Exploration Track</h3>
+                <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-300">
+                  Exploratory Alignment
+                </span>
+              </div>
+              <p className="text-xs text-blue-800 leading-relaxed">
+                Your current profile has an exploratory alignment ({analysisData?.fit_score || 0}%) for {currentRole.title}. 
+                Rather than jumping straight to advanced specialized assessments, we recommend focusing on the foundational milestone curriculum below—accredited through national Government of India initiatives (NPTEL, SWAYAM & Skill India).
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
@@ -260,9 +283,15 @@ const Dashboard = () => {
               <span className="flex items-center">
                 <Target className="mr-2 text-primary-500" size={18} /> Role Fit Score
               </span>
-              <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                70/30 Essential Weighted
-              </span>
+              <div className="flex items-center gap-1.5">
+                <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full border ${
+                  analysisData?.confidence_level === 'Exploratory' 
+                    ? 'bg-amber-50 text-amber-700 border-amber-200' 
+                    : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                }`}>
+                  {analysisData?.confidence_level || 'Standard'} Confidence
+                </span>
+              </div>
             </h2>
 
             <FitScoreGauge score={analysisData?.fit_score || 0} />
@@ -311,13 +340,18 @@ const Dashboard = () => {
             </div>
 
             {analysisData?.predicted_salary && (
-              <div className="mt-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 flex items-center justify-between">
-                <span className="font-semibold flex items-center gap-1.5">
-                  <IndianRupee size={14} className="text-emerald-600" /> ML Predicted CTC:
-                </span>
-                <span className="font-bold text-xs text-emerald-900 bg-white px-2.5 py-1 rounded-lg border border-emerald-200 shadow-xs">
-                  {analysisData.predicted_salary}
-                </span>
+              <div className="mt-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold flex items-center gap-1.5">
+                    <IndianRupee size={14} className="text-emerald-600" /> ML Predicted CTC:
+                  </span>
+                  <span className="font-bold text-xs text-emerald-900 bg-white px-2.5 py-1 rounded-lg border border-emerald-200 shadow-xs">
+                    {analysisData.predicted_salary}
+                  </span>
+                </div>
+                <p className="text-[10px] text-emerald-700/80 italic mt-2 leading-tight">
+                  * {analysisData?.disclaimer || "Estimated market compensation reflects median hiring data for candidates clearing technical rounds and is not a guaranteed job offer."}
+                </p>
               </div>
             )}
           </div>

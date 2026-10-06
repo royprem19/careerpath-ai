@@ -13,6 +13,9 @@ class ResumeUploadResponse(BaseModel):
     experience: Dict[str, Any] = {}
     certifications: List[str] = []
     raw_text: str = ""
+    confidence_score: float = 1.0
+    is_scanned_or_low_text: bool = False
+    warning_message: Optional[str] = None
 
 class SkillNormalizeRequest(BaseModel):
     skills: List[str]
@@ -66,6 +69,9 @@ class GapAnalysisResponse(BaseModel):
     why_this_role: Optional[str] = None
     predicted_salary: Optional[str] = None
     skill_velocities: Optional[List[Dict[str, Any]]] = None
+    confidence_level: str = "High"
+    is_exploratory_mode: bool = False
+    disclaimer: Optional[str] = "Estimated market compensation reflects median hiring data for candidates clearing technical rounds and is not a guaranteed job offer."
 
 class RecommendationRequest(BaseModel):
     user_skills: List[str] = Field(default=[], alias="userSkills")
