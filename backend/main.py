@@ -13,7 +13,8 @@ if str(root_dir) not in sys.path:
 if str(backend_dir) not in sys.path:
     sys.path.insert(0, str(backend_dir))
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from backend.routers import resume, roles, analysis, recommendations, roadmap, report, auth
 from backend.database import get_supabase
@@ -42,6 +43,29 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.middleware("http")
+async def security_defense_middleware(request: Request, call_next):
+    # 1. Inspect query parameters for SQL/NoSQL injection signatures
+    for param_name, param_val in request.query_params.items():
+        val_upper = param_val.upper()
+        if any(token in val_upper for token in [
+            "UNION SELECT", "DROP TABLE", "INSERT INTO", "DELETE FROM",
+            "1=1", "OR '1'='1'", "$WHERE", "$GT", "$NE", "$REGEX", "--", "/*"
+        ]):
+            return JSONResponse(
+                status_code=400,
+                content={"detail": f"Security Alert: Malicious SQL/NoSQL pattern detected in parameter '{param_name}'."}
+            )
+
+    response = await call_next(request)
+
+    # 2. Add standard HTTP security headers (OWASP)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    return response
 
 app.include_router(auth.router)
 app.include_router(resume.router)

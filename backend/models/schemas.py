@@ -1,5 +1,11 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Dict, Any, Union
+from backend.services.sanitizer import (
+    sanitize_text,
+    sanitize_email,
+    sanitize_identifier,
+    sanitize_skills_list
+)
 
 class ResumeUploadResponse(BaseModel):
     skills: List[str] = []
@@ -10,6 +16,11 @@ class ResumeUploadResponse(BaseModel):
 
 class SkillNormalizeRequest(BaseModel):
     skills: List[str]
+
+    @field_validator("skills")
+    @classmethod
+    def validate_skills(cls, v: List[str]) -> List[str]:
+        return sanitize_skills_list(v)
 
 class SkillNormalizeResponse(BaseModel):
     normalized_skills: List[str]
@@ -31,6 +42,16 @@ class GapAnalysisRequest(BaseModel):
     model_config = {
         "populate_by_name": True
     }
+
+    @field_validator("target_role_id")
+    @classmethod
+    def validate_role_id(cls, v: str) -> str:
+        return sanitize_identifier(v, field_name="Target Role ID")
+
+    @field_validator("user_skills")
+    @classmethod
+    def validate_user_skills(cls, v: List[str]) -> List[str]:
+        return sanitize_skills_list(v)
 
 class GapAnalysisResponse(BaseModel):
     fit_score: float
@@ -56,6 +77,11 @@ class RecommendationRequest(BaseModel):
         "populate_by_name": True
     }
 
+    @field_validator("user_skills")
+    @classmethod
+    def validate_skills(cls, v: List[str]) -> List[str]:
+        return sanitize_skills_list(v)
+
 class RecommendationResponse(BaseModel):
     role_id: str
     role_title: str
@@ -69,6 +95,11 @@ class RoadmapRequest(BaseModel):
     model_config = {
         "populate_by_name": True
     }
+
+    @field_validator("missing_skills")
+    @classmethod
+    def validate_missing(cls, v: List[str]) -> List[str]:
+        return sanitize_skills_list(v)
 
 class RoadmapEntry(BaseModel):
     week: int
@@ -103,15 +134,70 @@ class UserRegisterRequest(BaseModel):
     graduation_year: Optional[int] = 2026
     skills: Optional[List[str]] = []
 
+    @field_validator("email")
+    @classmethod
+    def validate_email(cls, v: str) -> str:
+        return sanitize_email(v)
+
+    @field_validator("user_name")
+    @classmethod
+    def validate_user_name(cls, v: str) -> str:
+        return sanitize_text(v, max_length=100, field_name="User Name")
+
+    @field_validator("password")
+    @classmethod
+    def validate_password(cls, v: str) -> str:
+        return sanitize_text(v, max_length=128, field_name="Password")
+
+    @field_validator("institution_name")
+    @classmethod
+    def validate_inst(cls, v: Optional[str]) -> Optional[str]:
+        return sanitize_text(v, max_length=150, field_name="Institution") if v else v
+
+    @field_validator("department")
+    @classmethod
+    def validate_dept(cls, v: Optional[str]) -> Optional[str]:
+        return sanitize_text(v, max_length=100, field_name="Department") if v else v
+
+    @field_validator("skills")
+    @classmethod
+    def validate_skills(cls, v: Optional[List[str]]) -> List[str]:
+        return sanitize_skills_list(v or [])
+
 class UserLoginRequest(BaseModel):
     email: str
     password: str
+
+    @field_validator("email")
+    @classmethod
+    def validate_email(cls, v: str) -> str:
+        return sanitize_email(v)
+
+    @field_validator("password")
+    @classmethod
+    def validate_password(cls, v: str) -> str:
+        return sanitize_text(v, max_length=128, field_name="Password")
 
 class UserUpdateRequest(BaseModel):
     user_name: Optional[str] = None
     institution_name: Optional[str] = None
     department: Optional[str] = None
     graduation_year: Optional[int] = None
+
+    @field_validator("user_name")
+    @classmethod
+    def validate_user_name(cls, v: Optional[str]) -> Optional[str]:
+        return sanitize_text(v, max_length=100, field_name="User Name") if v else v
+
+    @field_validator("institution_name")
+    @classmethod
+    def validate_inst(cls, v: Optional[str]) -> Optional[str]:
+        return sanitize_text(v, max_length=150, field_name="Institution") if v else v
+
+    @field_validator("department")
+    @classmethod
+    def validate_dept(cls, v: Optional[str]) -> Optional[str]:
+        return sanitize_text(v, max_length=100, field_name="Department") if v else v
 
 class UserResponse(BaseModel):
     id: str
