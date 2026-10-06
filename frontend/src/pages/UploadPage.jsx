@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
 import FileUpload from '../components/FileUpload';
 import { 
   Sparkles, ArrowRight, AlertCircle, Lock, LogIn, 
-  CheckCircle2 
+  CheckCircle2, FileText, Cpu, BarChart3, Compass, 
+  Target, TrendingUp, GraduationCap, ShieldCheck, 
+  Check, Layers, BookOpen, Download
 } from 'lucide-react';
 import { uploadResume, normalizeSkills, loginUser } from '../services/api';
 
@@ -15,6 +17,16 @@ const UploadPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const { currentUser, token, login, setUserProfile, setError } = useAppContext();
   const navigate = useNavigate();
+
+  // Smooth scroll support for #how-it-works link
+  useEffect(() => {
+    if (window.location.hash === '#how-it-works') {
+      const el = document.getElementById('how-it-works');
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100);
+      }
+    }
+  }, []);
 
   const isAuthenticated = Boolean(currentUser && token);
 
@@ -297,6 +309,172 @@ const UploadPage = () => {
                 </>
               )}
             </button>
+          </div>
+
+        </div>
+
+        {/* ==============================================================================
+            HOW IT WORKS SECTION
+        ============================================================================== */}
+        <div id="how-it-works" className="pt-16 pb-8 border-t border-gray-200/80 scroll-mt-20">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 border border-primary-200/60 text-primary-700 text-xs font-bold tracking-wide uppercase mb-4 shadow-2xs">
+              <Sparkles size={14} className="text-primary-600 animate-pulse" />
+              Intelligence Pipeline & Methodology
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+              How CareerPath AI Works
+            </h2>
+            <p className="mt-3.5 text-base sm:text-lg text-gray-600 leading-relaxed">
+              Transform unstructured technical resumes or skill lists into empirical role alignments, machine-learned salary valuations, and actionable learning roadmaps in 4 automated stages.
+            </p>
+          </div>
+
+          {/* 4 Interactive Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+            
+            {/* Step 1 */}
+            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 to-blue-600" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-extrabold tracking-wider px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-100">
+                    STEP 01
+                  </span>
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <FileText size={20} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Ingest & Extract</h3>
+                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-4">
+                  Upload your PDF/DOCX resume or enter skills manually. Our multi-format parsing engine isolates technical competencies, degrees, and work history.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-gray-50 flex flex-wrap gap-1.5">
+                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">PyMuPDF</span>
+                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">DOCX Parsing</span>
+                <span className="text-[10px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">NLP Filter</span>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 to-indigo-600" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-extrabold tracking-wider px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-700 border border-indigo-100">
+                    STEP 02
+                  </span>
+                  <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Cpu size={20} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">AI Normalization</h3>
+                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-4">
+                  Non-standard acronyms and shorthand skills (<code className="text-indigo-600 font-mono text-[11px]">k8s</code>, <code className="text-indigo-600 font-mono text-[11px]">ML</code>, <code className="text-indigo-600 font-mono text-[11px]">Postgres</code>) are normalized against 300+ standard tech taxonomies using RapidFuzz.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-gray-50 flex flex-wrap gap-1.5">
+                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">RapidFuzz</span>
+                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">Synonym Taxonomy</span>
+                <span className="text-[10px] font-semibold bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-md">Deduplication</span>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-500 to-purple-600" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-extrabold tracking-wider px-2.5 py-1 rounded-md bg-purple-50 text-purple-700 border border-purple-100">
+                    STEP 03
+                  </span>
+                  <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <BarChart3 size={20} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Gap & Salary AI</h3>
+                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-4">
+                  Your profile is evaluated against 80+ Indian engineering roles. Essential vs optional skills are quantified, and CTC compensation is predicted using our trained Ridge ML regressor.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-gray-50 flex flex-wrap gap-1.5">
+                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">Fit Score %</span>
+                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">Ridge ML (R²=0.72)</span>
+                <span className="text-[10px] font-semibold bg-purple-50 text-purple-700 px-2 py-0.5 rounded-md">Indian CTC Bands</span>
+              </div>
+            </div>
+
+            {/* Step 4 */}
+            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 to-emerald-600" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-extrabold tracking-wider px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-100">
+                    STEP 04
+                  </span>
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Compass size={20} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Targeted Roadmap</h3>
+                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-4">
+                  Receive a structured week-by-week upskilling pathway bridging missing essential skills first. Every module pairs free verified courses (NPTEL, freeCodeCamp) with hands-on projects.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-gray-50 flex flex-wrap gap-1.5">
+                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">NPTEL / Coursera</span>
+                <span className="text-[10px] font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">Weekly Timeline</span>
+                <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-md">PDF Export</span>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Deep-Dive Architecture Callout Banner */}
+          <div className="mt-12 bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl border border-indigo-900/40 relative overflow-hidden">
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+              
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-blue-300 shrink-0 border border-white/10">
+                  <Target size={24} />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-white mb-1">Empirical Role Calibration</h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Trained on real hiring criteria across top Indian tech hubs (Bengaluru, Hyderabad, Pune, NCR) spanning 80+ engineering specializations.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-yellow-300 shrink-0 border border-white/10">
+                  <TrendingUp size={24} />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-white mb-1">Quantified Skill Velocities</h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Identifies high-impact skills that produce the greatest boost to market fit and compensation when acquired.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-emerald-300 shrink-0 border border-white/10">
+                  <ShieldCheck size={24} />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-white mb-1">Enterprise-Grade Security</h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Protected with single-use cryptographic token verification, Bcrypt password hashing, and real-time DNS & SQL injection defense.
+                  </p>
+                </div>
+              </div>
+
+            </div>
           </div>
 
         </div>

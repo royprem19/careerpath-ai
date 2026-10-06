@@ -31,6 +31,20 @@ const Navbar = () => {
             <Link to="/" className="text-gray-700 hover:text-primary-600 text-sm font-semibold transition-colors">
               Home
             </Link>
+            <a 
+              href="#how-it-works"
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  navigate('/#how-it-works');
+                }
+              }}
+              className="text-gray-700 hover:text-primary-600 text-sm font-semibold transition-colors cursor-pointer"
+            >
+              How It Works
+            </a>
             <Link to="/roles" className="text-gray-700 hover:text-primary-600 text-sm font-semibold transition-colors">
               Roles
             </Link>
