@@ -111,6 +111,8 @@ class RoadmapEntry(BaseModel):
     duration: str
     is_free: bool = True
     difficulty: str = "Beginner"
+    initiative: Optional[str] = None
+    is_govt_initiative: bool = False
 
 class RoadmapResponse(BaseModel):
     entries: List[RoadmapEntry]

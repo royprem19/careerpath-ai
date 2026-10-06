@@ -20,11 +20,16 @@ const RoadmapTimeline = ({ roadmap = [] }) => {
           
           <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-primary-200 transition-colors">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-bold px-2 py-0.5 rounded bg-primary-100 text-primary-800">
                   Week {item.week}
                 </span>
                 <h4 className="text-base font-bold text-gray-900">{item.skill}</h4>
+                {(item.is_govt_initiative || item.initiative) && (
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-orange-50 text-orange-800 border border-orange-200">
+                    <span>🇮🇳</span> {item.initiative || 'Govt Initiative (Skill India / NPTEL)'}
+                  </span>
+                )}
               </div>
               <span className="inline-flex items-center text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full w-fit">
                 <Clock size={12} className="mr-1" /> {item.duration}
@@ -60,6 +65,11 @@ const RoadmapTimeline = ({ roadmap = [] }) => {
                     </span>
                   )}
                 </div>
+                {item.initiative && (
+                  <div className="mt-2 text-[11px] text-orange-800 bg-orange-50 px-2 py-1 rounded border border-orange-200 flex items-center gap-1.5">
+                    <span className="font-bold">🇮🇳 Accredited:</span> {item.initiative}
+                  </div>
+                )}
               </div>
 
               {/* Project */}

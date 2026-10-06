@@ -159,6 +159,56 @@ REAL_FALLBACK_ROLES = [
         "experience_range": "0-3 years",
         "essential_skills": ["Selenium", "Python", "Postman", "API Testing", "Java", "Git & GitHub"],
         "optional_skills": ["Playwright", "Cypress", "Jenkins", "SQL"]
+    },
+    {
+        "id": "16",
+        "title": "UI/UX & Product Designer",
+        "category": "Design & Creative",
+        "description": "Crafts intuitive human-centered product designs, wireframes, component libraries, and interactive prototypes.",
+        "avg_salary": "₹5.5 - 12 LPA",
+        "experience_range": "0-2 years",
+        "essential_skills": ["UI/UX Design", "Figma", "Wireframing", "Prototyping", "User Research"],
+        "optional_skills": ["Design Systems", "Usability Testing", "Information Architecture", "HTML5", "CSS3"]
+    },
+    {
+        "id": "17",
+        "title": "Business Analyst",
+        "category": "Business & Analytics",
+        "description": "Translates complex business workflows into clear functional specifications, process diagrams, and data-backed business insights.",
+        "avg_salary": "₹5 - 10 LPA",
+        "experience_range": "0-2 years",
+        "essential_skills": ["Business Analysis", "SQL", "Data Modeling", "Process Mapping", "Requirements Gathering"],
+        "optional_skills": ["Tableau", "Power BI", "User Stories", "Agile & Scrum", "Python"]
+    },
+    {
+        "id": "18",
+        "title": "Product Manager",
+        "category": "Product & Management",
+        "description": "Owns product vision, roadmap prioritization, cross-functional engineering alignment, and user-centric problem solving.",
+        "avg_salary": "₹10 - 20 LPA",
+        "experience_range": "1-3 years",
+        "essential_skills": ["Product Management", "Product Roadmapping", "User Stories", "Agile & Scrum", "Stakeholder Management"],
+        "optional_skills": ["SQL", "Data Analytics", "A/B Testing", "Wireframing", "Customer Journey Mapping"]
+    },
+    {
+        "id": "19",
+        "title": "Digital Marketing & Growth Specialist",
+        "category": "Marketing & Growth",
+        "description": "Drives user acquisition, brand visibility, and organic/paid growth through SEO, content campaigns, and performance marketing analytics.",
+        "avg_salary": "₹4.5 - 9 LPA",
+        "experience_range": "0-2 years",
+        "essential_skills": ["Digital Marketing", "SEO / SEM", "Content Strategy", "Google Analytics", "Social Media Marketing"],
+        "optional_skills": ["Email Marketing", "Copywriting", "A/B Testing", "Performance Marketing", "Conversion Rate Optimization"]
+    },
+    {
+        "id": "20",
+        "title": "Technical Operations & Customer Success Specialist",
+        "category": "Operations & Support",
+        "description": "Ensures seamless customer adoption, operational SLA resolution, client onboarding, and technical incident troubleshooting.",
+        "avg_salary": "₹4.5 - 8.5 LPA",
+        "experience_range": "0-2 years",
+        "essential_skills": ["Technical Support & Troubleshooting", "Customer Success & Retention", "CRM / Salesforce", "Process Optimization"],
+        "optional_skills": ["SQL", "SLA Management", "Incident Management", "Root Cause Analysis", "Jira"]
     }
 ]
 

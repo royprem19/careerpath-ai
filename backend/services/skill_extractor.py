@@ -70,10 +70,47 @@ SKILLS_DB = {
         "Work Ethic", "Attention to Detail", "Conflict Resolution", "Decision Making", "Emotional Intelligence",
         "Empathy", "Mentoring", "Negotiation", "Networking", "Presentation Skills", "Public Speaking",
         "Active Listening", "Collaboration", "Customer Service", "Interpersonal Skills", "Motivation"
+    ],
+    "Design & Creative": [
+        "UI/UX Design", "Figma", "User Research", "Wireframing", "Prototyping", "Design Systems",
+        "Interaction Design", "Graphic Design", "Usability Testing", "Design Thinking", "Information Architecture",
+        "Adobe XD", "Sketch", "Visual Design", "Design Sprints"
+    ],
+    "Business & Product": [
+        "Product Management", "Business Analysis", "Requirements Gathering", "Process Mapping",
+        "Product Roadmapping", "Sprint Planning", "Market Research", "Financial Modeling", "Stakeholder Management",
+        "User Stories", "Competitive Analysis", "Agile & Scrum", "Business Intelligence", "KPI Tracking"
+    ],
+    "Marketing & Growth": [
+        "Digital Marketing", "SEO", "SEM", "Content Strategy", "Google Analytics", "Social Media Marketing",
+        "Email Marketing", "Copywriting", "Data Storytelling", "Brand Strategy", "A/B Testing", "Growth Marketing"
+    ],
+    "Operations & Quality": [
+        "Quality Assurance", "Manual Testing", "Test Automation", "Technical Support", "Customer Success",
+        "CRM", "Salesforce", "Zoho", "Technical Writing", "Incident Management", "Vendor Management", "ITIL"
     ]
 }
 
 ALL_SKILLS = [skill for category in SKILLS_DB.values() for skill in category]
+
+# Comprehensive Indian Degree & Educational Qualifications Mapping
+INDIAN_EDUCATION_MAPPINGS = [
+    (re.compile(r'\b(b\.?tech|btech|bachelor\s+of\s+technology)\b', re.IGNORECASE), "B.Tech (Bachelor of Technology)"),
+    (re.compile(r'\b(b\.?e\.?|be\b|bachelor\s+of\s+engineering)\b', re.IGNORECASE), "B.E. (Bachelor of Engineering)"),
+    (re.compile(r'\b(bca|bachelor\s+of\s+computer\s+applications)\b', re.IGNORECASE), "BCA (Bachelor of Computer Applications)"),
+    (re.compile(r'\b(mca|master\s+of\s+computer\s+applications)\b', re.IGNORECASE), "MCA (Master of Computer Applications)"),
+    (re.compile(r'\b(m\.?tech|mtech|master\s+of\s+technology)\b', re.IGNORECASE), "M.Tech (Master of Technology)"),
+    (re.compile(r'\b(m\.?e\.?|master\s+of\s+engineering)\b', re.IGNORECASE), "M.E. (Master of Engineering)"),
+    (re.compile(r'\b(b\.?sc|bsc|bachelor\s+of\s+science)\b', re.IGNORECASE), "B.Sc (Bachelor of Science)"),
+    (re.compile(r'\b(m\.?sc|msc|master\s+of\s+science)\b', re.IGNORECASE), "M.Sc (Master of Science)"),
+    (re.compile(r'\b(mba|pgdm|master\s+of\s+business\s+administration)\b', re.IGNORECASE), "MBA (Master of Business Administration)"),
+    (re.compile(r'\b(bba|bachelor\s+of\s+business\s+administration)\b', re.IGNORECASE), "BBA (Bachelor of Business Administration)"),
+    (re.compile(r'\b(b\.?com|bcom|bachelor\s+of\s+commerce)\b', re.IGNORECASE), "B.Com (Bachelor of Commerce)"),
+    (re.compile(r'\b(b\.?voc|bachelor\s+of\s+vocation)\b', re.IGNORECASE), "B.Voc (Vocational Degree)"),
+    (re.compile(r'\b(polytechnic|diploma\s+in\s+engineering|diploma)\b', re.IGNORECASE), "Diploma / Polytechnic"),
+    (re.compile(r'\b(ph\.?d|doctorate)\b', re.IGNORECASE), "Ph.D. / Doctorate"),
+    (re.compile(r'\b(self[-\s]?taught|bootcamp\s+graduate|skill\s+india\s+certified)\b', re.IGNORECASE), "Non-Traditional / Skill Certified"),
+]
 
 def extract_skills(text: str) -> list[str]:
     found_skills = set()
@@ -99,12 +136,11 @@ def extract_skills(text: str) -> list[str]:
     return list(found_skills)
 
 def extract_education(text: str) -> list[str]:
-    education_keywords = ["B.Tech", "B.E.", "M.Tech", "MBA", "BCA", "MCA", "B.Sc", "M.Sc", "PhD", "Bachelor", "Master", "Degree", "Diploma"]
     found = set()
-    for kw in education_keywords:
-        if re.search(r'\b' + re.escape(kw.lower()) + r'\b', text.lower()):
-            found.add(kw)
-    return list(found)
+    for pattern, canonical_name in INDIAN_EDUCATION_MAPPINGS:
+        if pattern.search(text):
+            found.add(canonical_name)
+    return sorted(list(found))
 
 def extract_experience(text: str) -> dict:
     match = re.search(r'(\d+)\+?\s*(years?|yrs?)\s+of\s+experience', text.lower())

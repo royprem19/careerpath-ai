@@ -113,7 +113,8 @@ def run_tests():
     print(f"7. [PASS] POST /api/report/pdf -> Generated valid PDF ({len(res.content)} bytes)")
 
     # 8. Candidate Authentication (Dynamic registration & login, JWT verification)
-    test_cand_email = "candidate_test@iitm.ac.in"
+    import uuid
+    test_cand_email = f"candidate_{uuid.uuid4().hex[:6]}@iitm.ac.in"
     reg_payload = {
         "email": test_cand_email,
         "password": "Password@123",

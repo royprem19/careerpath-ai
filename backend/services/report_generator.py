@@ -197,11 +197,15 @@ def generate_pdf_report(user_profile: dict, gap_analysis: dict, recommendations:
             Paragraph("<b>Applied Project</b>", bold_body_style)
         ]]
         for entry in roadmap[:6]:
+            plat = clean_text(entry.get('platform', ''))
+            if entry.get('is_govt_initiative') or entry.get('initiative'):
+                init_name = clean_text(entry.get('initiative') or 'Govt Initiative')
+                plat = f"{plat}<br/><font color='#c2410c' size='7'><b>[Govt: {init_name}]</b></font>"
             rm_data.append([
                 Paragraph(f"W{entry.get('week', 1)}", body_style),
                 Paragraph(f"<b>{clean_text(entry.get('skill', ''))}</b>", body_style),
                 Paragraph(clean_text(entry.get('course', '')), body_style),
-                Paragraph(clean_text(entry.get('platform', '')), body_style),
+                Paragraph(plat, body_style),
                 Paragraph(clean_text(entry.get('project', '')), body_style)
             ])
         rm_table = Table(rm_data, colWidths=[40, 90, 150, 90, 170])

@@ -46,12 +46,13 @@ def recommend_roles(user_skills: list[str], user_education: any, user_experience
             is_ai_or_cloud=is_ai_or_cloud
         )
         
-        # D. Hybrid Multi-Factor Scoring
-        # 50% Coverage + 35% Semantic Embeddings + 15% Experience/Education
-        edu_boost = 5.0 if user_education else 0.0
-        exp_boost = min(10.0, years_exp * 2.5)
+        # D. Bias-Free Hybrid Multi-Factor Scoring (Skill-First Principle)
+        # Evaluates candidate purely on demonstrated competencies, semantic alignment, and practical readiness.
+        # Zero penalty for non-traditional education (self-taught, diploma, BCA, bootcamp).
+        # 55% Competency Coverage + 35% Semantic Fit + 10% Practical Capability
+        readiness_score = min(10.0, max(fit_score * 0.1, years_exp * 2.5))
         
-        hybrid_score = (0.50 * fit_score) + (0.35 * sem_score) + (0.15 * (fit_score * 0.5 + edu_boost + exp_boost))
+        hybrid_score = (0.55 * fit_score) + (0.35 * sem_score) + (0.10 * readiness_score * 10)
         hybrid_score = round(min(100.0, max(5.0, hybrid_score)), 1)
         
         matched_cnt = len(gap.matched_skills)
