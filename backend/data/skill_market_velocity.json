@@ -1,0 +1,983 @@
+{
+  "langchain": {
+    "canonical_name": "LangChain",
+    "frequency_in_postings": 80,
+    "market_share_pct": 1.45,
+    "avg_associated_salary_lpa": 17.1,
+    "velocity": 64,
+    "trend": "Exponential Surge (+57% YoY)",
+    "demand_tier": "Tier-1 (High Premium)"
+  },
+  "nlp": {
+    "canonical_name": "NLP",
+    "frequency_in_postings": 235,
+    "market_share_pct": 4.27,
+    "avg_associated_salary_lpa": 14.5,
+    "velocity": 56,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "rag": {
+    "canonical_name": "RAG",
+    "frequency_in_postings": 82,
+    "market_share_pct": 1.49,
+    "avg_associated_salary_lpa": 17.1,
+    "velocity": 64,
+    "trend": "Exponential Surge (+57% YoY)",
+    "demand_tier": "Tier-1 (High Premium)"
+  },
+  "prompt engineering": {
+    "canonical_name": "Prompt Engineering",
+    "frequency_in_postings": 88,
+    "market_share_pct": 1.6,
+    "avg_associated_salary_lpa": 17.1,
+    "velocity": 52,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "openai api": {
+    "canonical_name": "OpenAI API",
+    "frequency_in_postings": 93,
+    "market_share_pct": 1.69,
+    "avg_associated_salary_lpa": 17.1,
+    "velocity": 65,
+    "trend": "Exponential Surge (+58% YoY)",
+    "demand_tier": "Tier-1 (High Premium)"
+  },
+  "large language models (llms)": {
+    "canonical_name": "Large Language Models (LLMs)",
+    "frequency_in_postings": 149,
+    "market_share_pct": 2.71,
+    "avg_associated_salary_lpa": 16.9,
+    "velocity": 54,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "vector dbs": {
+    "canonical_name": "Vector DBs",
+    "frequency_in_postings": 98,
+    "market_share_pct": 1.78,
+    "avg_associated_salary_lpa": 17.1,
+    "velocity": 65,
+    "trend": "Exponential Surge (+58% YoY)",
+    "demand_tier": "Tier-1 (High Premium)"
+  },
+  "python": {
+    "canonical_name": "Python",
+    "frequency_in_postings": 1759,
+    "market_share_pct": 31.98,
+    "avg_associated_salary_lpa": 12.8,
+    "velocity": 95,
+    "trend": "Universal Standard",
+    "demand_tier": "Tier-1 (Universal)"
+  },
+  "machine learning": {
+    "canonical_name": "Machine Learning",
+    "frequency_in_postings": 280,
+    "market_share_pct": 5.09,
+    "avg_associated_salary_lpa": 10.0,
+    "velocity": 58,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "sql": {
+    "canonical_name": "SQL",
+    "frequency_in_postings": 1044,
+    "market_share_pct": 18.98,
+    "avg_associated_salary_lpa": 11.0,
+    "velocity": 78,
+    "trend": "Universal Standard",
+    "demand_tier": "Tier-1 (Universal)"
+  },
+  "aws": {
+    "canonical_name": "AWS",
+    "frequency_in_postings": 1063,
+    "market_share_pct": 19.33,
+    "avg_associated_salary_lpa": 12.5,
+    "velocity": 79,
+    "trend": "Universal Standard",
+    "demand_tier": "Tier-1 (Universal)"
+  },
+  "linux": {
+    "canonical_name": "Linux",
+    "frequency_in_postings": 381,
+    "market_share_pct": 6.93,
+    "avg_associated_salary_lpa": 10.6,
+    "velocity": 60,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "java": {
+    "canonical_name": "Java",
+    "frequency_in_postings": 831,
+    "market_share_pct": 15.11,
+    "avg_associated_salary_lpa": 11.4,
+    "velocity": 73,
+    "trend": "Universal Standard",
+    "demand_tier": "Tier-1 (Universal)"
+  },
+  "power bi": {
+    "canonical_name": "Power BI",
+    "frequency_in_postings": 575,
+    "market_share_pct": 10.45,
+    "avg_associated_salary_lpa": 10.0,
+    "velocity": 66,
+    "trend": "Universal Standard",
+    "demand_tier": "Tier-1 (Universal)"
+  },
+  "excel": {
+    "canonical_name": "Excel",
+    "frequency_in_postings": 569,
+    "market_share_pct": 10.35,
+    "avg_associated_salary_lpa": 10.1,
+    "velocity": 66,
+    "trend": "Universal Standard",
+    "demand_tier": "Tier-1 (Universal)"
+  },
+  "kotlin": {
+    "canonical_name": "Kotlin",
+    "frequency_in_postings": 128,
+    "market_share_pct": 2.33,
+    "avg_associated_salary_lpa": 12.2,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "rest apis": {
+    "canonical_name": "REST APIs",
+    "frequency_in_postings": 998,
+    "market_share_pct": 18.15,
+    "avg_associated_salary_lpa": 12.5,
+    "velocity": 77,
+    "trend": "Universal Standard",
+    "demand_tier": "Tier-1 (Universal)"
+  },
+  "jetpack compose": {
+    "canonical_name": "Jetpack Compose",
+    "frequency_in_postings": 122,
+    "market_share_pct": 2.22,
+    "avg_associated_salary_lpa": 12.2,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "android sdk": {
+    "canonical_name": "Android SDK",
+    "frequency_in_postings": 131,
+    "market_share_pct": 2.38,
+    "avg_associated_salary_lpa": 12.1,
+    "velocity": 54,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "firebase": {
+    "canonical_name": "Firebase",
+    "frequency_in_postings": 203,
+    "market_share_pct": 3.69,
+    "avg_associated_salary_lpa": 12.2,
+    "velocity": 56,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "docker": {
+    "canonical_name": "Docker",
+    "frequency_in_postings": 836,
+    "market_share_pct": 15.2,
+    "avg_associated_salary_lpa": 13.3,
+    "velocity": 73,
+    "trend": "Universal Standard",
+    "demand_tier": "Tier-1 (Universal)"
+  },
+  "mongodb": {
+    "canonical_name": "MongoDB",
+    "frequency_in_postings": 416,
+    "market_share_pct": 7.56,
+    "avg_associated_salary_lpa": 12.8,
+    "velocity": 61,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "django": {
+    "canonical_name": "Django",
+    "frequency_in_postings": 264,
+    "market_share_pct": 4.8,
+    "avg_associated_salary_lpa": 14.2,
+    "velocity": 57,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "fastapi": {
+    "canonical_name": "FastAPI",
+    "frequency_in_postings": 296,
+    "market_share_pct": 5.38,
+    "avg_associated_salary_lpa": 14.1,
+    "velocity": 70,
+    "trend": "Exponential Surge (+63% YoY)",
+    "demand_tier": "Tier-1 (High Premium)"
+  },
+  "node.js": {
+    "canonical_name": "Node.js",
+    "frequency_in_postings": 415,
+    "market_share_pct": 7.55,
+    "avg_associated_salary_lpa": 12.9,
+    "velocity": 61,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "postgresql": {
+    "canonical_name": "PostgreSQL",
+    "frequency_in_postings": 455,
+    "market_share_pct": 8.27,
+    "avg_associated_salary_lpa": 13.7,
+    "velocity": 62,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "redis": {
+    "canonical_name": "Redis",
+    "frequency_in_postings": 159,
+    "market_share_pct": 2.89,
+    "avg_associated_salary_lpa": 13.4,
+    "velocity": 54,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "ethereum": {
+    "canonical_name": "Ethereum",
+    "frequency_in_postings": 40,
+    "market_share_pct": 0.73,
+    "avg_associated_salary_lpa": 19.5,
+    "velocity": 51,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "solidity": {
+    "canonical_name": "Solidity",
+    "frequency_in_postings": 46,
+    "market_share_pct": 0.84,
+    "avg_associated_salary_lpa": 19.5,
+    "velocity": 51,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "web3.js": {
+    "canonical_name": "Web3.js",
+    "frequency_in_postings": 43,
+    "market_share_pct": 0.78,
+    "avg_associated_salary_lpa": 19.5,
+    "velocity": 51,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "smart contracts": {
+    "canonical_name": "Smart Contracts",
+    "frequency_in_postings": 42,
+    "market_share_pct": 0.76,
+    "avg_associated_salary_lpa": 19.5,
+    "velocity": 51,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "jira": {
+    "canonical_name": "JIRA",
+    "frequency_in_postings": 346,
+    "market_share_pct": 6.29,
+    "avg_associated_salary_lpa": 10.5,
+    "velocity": 59,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "agile": {
+    "canonical_name": "Agile",
+    "frequency_in_postings": 429,
+    "market_share_pct": 7.8,
+    "avg_associated_salary_lpa": 11.3,
+    "velocity": 62,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "requirements gathering": {
+    "canonical_name": "Requirements Gathering",
+    "frequency_in_postings": 142,
+    "market_share_pct": 2.58,
+    "avg_associated_salary_lpa": 8.5,
+    "velocity": 54,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "kubernetes": {
+    "canonical_name": "Kubernetes",
+    "frequency_in_postings": 385,
+    "market_share_pct": 7.0,
+    "avg_associated_salary_lpa": 12.9,
+    "velocity": 72,
+    "trend": "Exponential Surge (+64% YoY)",
+    "demand_tier": "Tier-1 (High Premium)"
+  },
+  "azure": {
+    "canonical_name": "Azure",
+    "frequency_in_postings": 158,
+    "market_share_pct": 2.87,
+    "avg_associated_salary_lpa": 10.7,
+    "velocity": 54,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "gcp": {
+    "canonical_name": "GCP",
+    "frequency_in_postings": 93,
+    "market_share_pct": 1.69,
+    "avg_associated_salary_lpa": 8.7,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "terraform": {
+    "canonical_name": "Terraform",
+    "frequency_in_postings": 209,
+    "market_share_pct": 3.8,
+    "avg_associated_salary_lpa": 11.9,
+    "velocity": 56,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "tensorflow": {
+    "canonical_name": "TensorFlow",
+    "frequency_in_postings": 325,
+    "market_share_pct": 5.91,
+    "avg_associated_salary_lpa": 14.1,
+    "velocity": 59,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "yolo": {
+    "canonical_name": "YOLO",
+    "frequency_in_postings": 55,
+    "market_share_pct": 1.0,
+    "avg_associated_salary_lpa": 16.5,
+    "velocity": 52,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "opencv": {
+    "canonical_name": "OpenCV",
+    "frequency_in_postings": 52,
+    "market_share_pct": 0.95,
+    "avg_associated_salary_lpa": 16.5,
+    "velocity": 51,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "deep learning": {
+    "canonical_name": "Deep Learning",
+    "frequency_in_postings": 200,
+    "market_share_pct": 3.64,
+    "avg_associated_salary_lpa": 14.5,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "pytorch": {
+    "canonical_name": "PyTorch",
+    "frequency_in_postings": 200,
+    "market_share_pct": 3.64,
+    "avg_associated_salary_lpa": 15.2,
+    "velocity": 67,
+    "trend": "Exponential Surge (+60% YoY)",
+    "demand_tier": "Tier-1 (High Premium)"
+  },
+  "penetration testing": {
+    "canonical_name": "Penetration Testing",
+    "frequency_in_postings": 78,
+    "market_share_pct": 1.42,
+    "avg_associated_salary_lpa": 8.7,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "ethical hacking": {
+    "canonical_name": "Ethical Hacking",
+    "frequency_in_postings": 81,
+    "market_share_pct": 1.47,
+    "avg_associated_salary_lpa": 8.7,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "siem": {
+    "canonical_name": "SIEM",
+    "frequency_in_postings": 73,
+    "market_share_pct": 1.33,
+    "avg_associated_salary_lpa": 8.7,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "network security": {
+    "canonical_name": "Network Security",
+    "frequency_in_postings": 82,
+    "market_share_pct": 1.49,
+    "avg_associated_salary_lpa": 8.7,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "tableau": {
+    "canonical_name": "Tableau",
+    "frequency_in_postings": 258,
+    "market_share_pct": 4.69,
+    "avg_associated_salary_lpa": 11.0,
+    "velocity": 57,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "statistics": {
+    "canonical_name": "Statistics",
+    "frequency_in_postings": 343,
+    "market_share_pct": 6.24,
+    "avg_associated_salary_lpa": 12.0,
+    "velocity": 59,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "data visualization": {
+    "canonical_name": "Data Visualization",
+    "frequency_in_postings": 178,
+    "market_share_pct": 3.24,
+    "avg_associated_salary_lpa": 10.7,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "airflow": {
+    "canonical_name": "Airflow",
+    "frequency_in_postings": 171,
+    "market_share_pct": 3.11,
+    "avg_associated_salary_lpa": 13.7,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "spark": {
+    "canonical_name": "Spark",
+    "frequency_in_postings": 106,
+    "market_share_pct": 1.93,
+    "avg_associated_salary_lpa": 13.6,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "kafka": {
+    "canonical_name": "Kafka",
+    "frequency_in_postings": 103,
+    "market_share_pct": 1.87,
+    "avg_associated_salary_lpa": 13.6,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "etl": {
+    "canonical_name": "ETL",
+    "frequency_in_postings": 170,
+    "market_share_pct": 3.09,
+    "avg_associated_salary_lpa": 13.6,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "dbt": {
+    "canonical_name": "dbt",
+    "frequency_in_postings": 108,
+    "market_share_pct": 1.96,
+    "avg_associated_salary_lpa": 13.6,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "pandas": {
+    "canonical_name": "Pandas",
+    "frequency_in_postings": 92,
+    "market_share_pct": 1.67,
+    "avg_associated_salary_lpa": 11.5,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "scikit-learn": {
+    "canonical_name": "Scikit-learn",
+    "frequency_in_postings": 191,
+    "market_share_pct": 3.47,
+    "avg_associated_salary_lpa": 12.5,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "jenkins": {
+    "canonical_name": "Jenkins",
+    "frequency_in_postings": 124,
+    "market_share_pct": 2.25,
+    "avg_associated_salary_lpa": 14.7,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "ansible": {
+    "canonical_name": "Ansible",
+    "frequency_in_postings": 106,
+    "market_share_pct": 1.93,
+    "avg_associated_salary_lpa": 14.7,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "ci/cd": {
+    "canonical_name": "CI/CD",
+    "frequency_in_postings": 166,
+    "market_share_pct": 3.02,
+    "avg_associated_salary_lpa": 14.3,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "system design": {
+    "canonical_name": "System Design",
+    "frequency_in_postings": 359,
+    "market_share_pct": 6.53,
+    "avg_associated_salary_lpa": 12.2,
+    "velocity": 60,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "roadmapping": {
+    "canonical_name": "Roadmapping",
+    "frequency_in_postings": 170,
+    "market_share_pct": 3.09,
+    "avg_associated_salary_lpa": 12.3,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "hiring": {
+    "canonical_name": "Hiring",
+    "frequency_in_postings": 65,
+    "market_share_pct": 1.18,
+    "avg_associated_salary_lpa": 13.4,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "okrs": {
+    "canonical_name": "OKRs",
+    "frequency_in_postings": 64,
+    "market_share_pct": 1.16,
+    "avg_associated_salary_lpa": 13.4,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "people management": {
+    "canonical_name": "People Management",
+    "frequency_in_postings": 61,
+    "market_share_pct": 1.11,
+    "avg_associated_salary_lpa": 13.4,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "react": {
+    "canonical_name": "React",
+    "frequency_in_postings": 454,
+    "market_share_pct": 8.25,
+    "avg_associated_salary_lpa": 12.8,
+    "velocity": 62,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "javascript": {
+    "canonical_name": "JavaScript",
+    "frequency_in_postings": 419,
+    "market_share_pct": 7.62,
+    "avg_associated_salary_lpa": 12.6,
+    "velocity": 61,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "typescript": {
+    "canonical_name": "TypeScript",
+    "frequency_in_postings": 440,
+    "market_share_pct": 8.0,
+    "avg_associated_salary_lpa": 12.6,
+    "velocity": 62,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "tailwind css": {
+    "canonical_name": "Tailwind CSS",
+    "frequency_in_postings": 120,
+    "market_share_pct": 2.18,
+    "avg_associated_salary_lpa": 13.8,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "html/css": {
+    "canonical_name": "HTML/CSS",
+    "frequency_in_postings": 288,
+    "market_share_pct": 5.24,
+    "avg_associated_salary_lpa": 12.8,
+    "velocity": 58,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "figma": {
+    "canonical_name": "Figma",
+    "frequency_in_postings": 221,
+    "market_share_pct": 4.02,
+    "avg_associated_salary_lpa": 14.0,
+    "velocity": 56,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "next.js": {
+    "canonical_name": "Next.js",
+    "frequency_in_postings": 304,
+    "market_share_pct": 5.53,
+    "avg_associated_salary_lpa": 12.7,
+    "velocity": 70,
+    "trend": "Exponential Surge (+63% YoY)",
+    "demand_tier": "Tier-1 (High Premium)"
+  },
+  "hibernate": {
+    "canonical_name": "Hibernate",
+    "frequency_in_postings": 158,
+    "market_share_pct": 2.87,
+    "avg_associated_salary_lpa": 12.2,
+    "velocity": 54,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "maven": {
+    "canonical_name": "Maven",
+    "frequency_in_postings": 157,
+    "market_share_pct": 2.85,
+    "avg_associated_salary_lpa": 12.2,
+    "velocity": 54,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "spring boot": {
+    "canonical_name": "Spring Boot",
+    "frequency_in_postings": 157,
+    "market_share_pct": 2.85,
+    "avg_associated_salary_lpa": 12.2,
+    "velocity": 54,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "microservices": {
+    "canonical_name": "Microservices",
+    "frequency_in_postings": 274,
+    "market_share_pct": 4.98,
+    "avg_associated_salary_lpa": 12.8,
+    "velocity": 57,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "mlflow": {
+    "canonical_name": "MLflow",
+    "frequency_in_postings": 69,
+    "market_share_pct": 1.25,
+    "avg_associated_salary_lpa": 13.8,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "mlops": {
+    "canonical_name": "MLOps",
+    "frequency_in_postings": 92,
+    "market_share_pct": 1.67,
+    "avg_associated_salary_lpa": 13.6,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "hugging face": {
+    "canonical_name": "Hugging Face",
+    "frequency_in_postings": 57,
+    "market_share_pct": 1.04,
+    "avg_associated_salary_lpa": 16.7,
+    "velocity": 52,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "bert": {
+    "canonical_name": "BERT",
+    "frequency_in_postings": 50,
+    "market_share_pct": 0.91,
+    "avg_associated_salary_lpa": 16.7,
+    "velocity": 51,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "spacy": {
+    "canonical_name": "SpaCy",
+    "frequency_in_postings": 47,
+    "market_share_pct": 0.85,
+    "avg_associated_salary_lpa": 16.7,
+    "velocity": 51,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "transformers": {
+    "canonical_name": "Transformers",
+    "frequency_in_postings": 56,
+    "market_share_pct": 1.02,
+    "avg_associated_salary_lpa": 16.7,
+    "velocity": 64,
+    "trend": "Exponential Surge (+57% YoY)",
+    "demand_tier": "Tier-1 (High Premium)"
+  },
+  "express.js": {
+    "canonical_name": "Express.js",
+    "frequency_in_postings": 120,
+    "market_share_pct": 2.18,
+    "avg_associated_salary_lpa": 12.1,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "dax": {
+    "canonical_name": "DAX",
+    "frequency_in_postings": 75,
+    "market_share_pct": 1.36,
+    "avg_associated_salary_lpa": 13.7,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "data modeling": {
+    "canonical_name": "Data Modeling",
+    "frequency_in_postings": 72,
+    "market_share_pct": 1.31,
+    "avg_associated_salary_lpa": 13.7,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "product strategy": {
+    "canonical_name": "Product Strategy",
+    "frequency_in_postings": 103,
+    "market_share_pct": 1.87,
+    "avg_associated_salary_lpa": 11.6,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "user research": {
+    "canonical_name": "User Research",
+    "frequency_in_postings": 202,
+    "market_share_pct": 3.67,
+    "avg_associated_salary_lpa": 12.7,
+    "velocity": 56,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "a/b testing": {
+    "canonical_name": "A/B Testing",
+    "frequency_in_postings": 104,
+    "market_share_pct": 1.89,
+    "avg_associated_salary_lpa": 11.6,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "selenium": {
+    "canonical_name": "Selenium",
+    "frequency_in_postings": 104,
+    "market_share_pct": 1.89,
+    "avg_associated_salary_lpa": 11.9,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "manual testing": {
+    "canonical_name": "Manual Testing",
+    "frequency_in_postings": 114,
+    "market_share_pct": 2.07,
+    "avg_associated_salary_lpa": 11.9,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "postman": {
+    "canonical_name": "Postman",
+    "frequency_in_postings": 107,
+    "market_share_pct": 1.95,
+    "avg_associated_salary_lpa": 12.0,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "api testing": {
+    "canonical_name": "API Testing",
+    "frequency_in_postings": 108,
+    "market_share_pct": 1.96,
+    "avg_associated_salary_lpa": 12.0,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "redux": {
+    "canonical_name": "Redux",
+    "frequency_in_postings": 171,
+    "market_share_pct": 3.11,
+    "avg_associated_salary_lpa": 12.0,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "r": {
+    "canonical_name": "R",
+    "frequency_in_postings": 41,
+    "market_share_pct": 0.75,
+    "avg_associated_salary_lpa": 17.2,
+    "velocity": 51,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "publications": {
+    "canonical_name": "Publications",
+    "frequency_in_postings": 47,
+    "market_share_pct": 0.85,
+    "avg_associated_salary_lpa": 17.2,
+    "velocity": 51,
+    "trend": "High Growth (+42% YoY)",
+    "demand_tier": "Tier-1"
+  },
+  "git": {
+    "canonical_name": "Git",
+    "frequency_in_postings": 187,
+    "market_share_pct": 3.4,
+    "avg_associated_salary_lpa": 10.9,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "algorithms": {
+    "canonical_name": "Algorithms",
+    "frequency_in_postings": 190,
+    "market_share_pct": 3.45,
+    "avg_associated_salary_lpa": 10.9,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "c++": {
+    "canonical_name": "C++",
+    "frequency_in_postings": 190,
+    "market_share_pct": 3.45,
+    "avg_associated_salary_lpa": 10.9,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "data structures": {
+    "canonical_name": "Data Structures",
+    "frequency_in_postings": 184,
+    "market_share_pct": 3.35,
+    "avg_associated_salary_lpa": 10.9,
+    "velocity": 55,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "team leadership": {
+    "canonical_name": "Team Leadership",
+    "frequency_in_postings": 102,
+    "market_share_pct": 1.85,
+    "avg_associated_salary_lpa": 13.8,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "code review": {
+    "canonical_name": "Code Review",
+    "frequency_in_postings": 96,
+    "market_share_pct": 1.75,
+    "avg_associated_salary_lpa": 13.8,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "wireframing": {
+    "canonical_name": "Wireframing",
+    "frequency_in_postings": 97,
+    "market_share_pct": 1.76,
+    "avg_associated_salary_lpa": 14.2,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "adobe xd": {
+    "canonical_name": "Adobe XD",
+    "frequency_in_postings": 92,
+    "market_share_pct": 1.67,
+    "avg_associated_salary_lpa": 14.2,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "prototyping": {
+    "canonical_name": "Prototyping",
+    "frequency_in_postings": 92,
+    "market_share_pct": 1.67,
+    "avg_associated_salary_lpa": 14.2,
+    "velocity": 53,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "css": {
+    "canonical_name": "CSS",
+    "frequency_in_postings": 86,
+    "market_share_pct": 1.56,
+    "avg_associated_salary_lpa": 14.2,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "core data": {
+    "canonical_name": "Core Data",
+    "frequency_in_postings": 75,
+    "market_share_pct": 1.36,
+    "avg_associated_salary_lpa": 12.4,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "xcode": {
+    "canonical_name": "Xcode",
+    "frequency_in_postings": 80,
+    "market_share_pct": 1.45,
+    "avg_associated_salary_lpa": 12.3,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "swift": {
+    "canonical_name": "Swift",
+    "frequency_in_postings": 81,
+    "market_share_pct": 1.47,
+    "avg_associated_salary_lpa": 12.3,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  },
+  "swiftui": {
+    "canonical_name": "SwiftUI",
+    "frequency_in_postings": 78,
+    "market_share_pct": 1.42,
+    "avg_associated_salary_lpa": 12.4,
+    "velocity": 52,
+    "trend": "Steady Market Demand",
+    "demand_tier": "Tier-2"
+  }
+}

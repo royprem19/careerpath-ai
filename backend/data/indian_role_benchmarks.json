@@ -1,0 +1,686 @@
+{
+  "AI Engineer": {
+    "title": "AI Engineer",
+    "category": "Data Science & AI",
+    "description": "Develops large language model applications, vector database retrieval pipelines, and production AI agent workflows.",
+    "postings_count": 156,
+    "salary_p25_lpa": 7.4,
+    "salary_median_lpa": 17.1,
+    "salary_p75_lpa": 36.9,
+    "salary_band_display": "\u20b97.4 - 36.9 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Vector DBs",
+      "Large Language Models (LLMs)",
+      "OpenAI API",
+      "Prompt Engineering",
+      "RAG",
+      "NLP",
+      "LangChain",
+      "Python"
+    ],
+    "optional_skills": []
+  },
+  "AI/ML Engineer": {
+    "title": "AI/ML Engineer",
+    "category": "Data Science & AI",
+    "description": "Engineering role in the Indian technology sector focused on AI/ML Engineer.",
+    "postings_count": 51,
+    "salary_p25_lpa": 7.9,
+    "salary_median_lpa": 9.4,
+    "salary_p75_lpa": 10.6,
+    "salary_band_display": "\u20b97.9 - 10.6 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Python",
+      "SQL",
+      "Machine Learning",
+      "AWS",
+      "Java",
+      "Power BI",
+      "Linux",
+      "Excel"
+    ],
+    "optional_skills": []
+  },
+  "Android Developer": {
+    "title": "Android Developer",
+    "category": "Mobile Engineering",
+    "description": "Builds scalable Android native applications using Kotlin, Java, Jetpack Compose, and RESTful microservice architectures.",
+    "postings_count": 172,
+    "salary_p25_lpa": 6.4,
+    "salary_median_lpa": 12.1,
+    "salary_p75_lpa": 24.2,
+    "salary_band_display": "\u20b96.4 - 24.2 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "REST APIs",
+      "Android SDK",
+      "Kotlin",
+      "Java",
+      "Jetpack Compose",
+      "Firebase"
+    ],
+    "optional_skills": []
+  },
+  "Backend Developer": {
+    "title": "Backend Developer",
+    "category": "Software Engineering",
+    "description": "Architects server-side APIs, database management systems, caching clusters, and high-concurrency microservices.",
+    "postings_count": 278,
+    "salary_p25_lpa": 6.4,
+    "salary_median_lpa": 13.4,
+    "salary_p75_lpa": 24.8,
+    "salary_band_display": "\u20b96.4 - 24.8 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Redis",
+      "MongoDB",
+      "Node.js",
+      "FastAPI",
+      "Java",
+      "Python",
+      "Docker",
+      "PostgreSQL",
+      "Django"
+    ],
+    "optional_skills": []
+  },
+  "Blockchain Developer": {
+    "title": "Blockchain Developer",
+    "category": "Web3 & Blockchain",
+    "description": "Develops decentralized applications, Solidity smart contracts, Web3 protocols, and cryptographic transaction workflows.",
+    "postings_count": 52,
+    "salary_p25_lpa": 8.8,
+    "salary_median_lpa": 19.5,
+    "salary_p75_lpa": 28.0,
+    "salary_band_display": "\u20b98.8 - 28.0 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Solidity",
+      "Web3.js",
+      "Smart Contracts",
+      "Ethereum",
+      "Python"
+    ],
+    "optional_skills": []
+  },
+  "Business Analyst": {
+    "title": "Business Analyst",
+    "category": "Business Intelligence",
+    "description": "Translates business requirements into functional specs, analyzes KPIs with SQL and Power BI, and coordinates Agile sprints.",
+    "postings_count": 264,
+    "salary_p25_lpa": 5.2,
+    "salary_median_lpa": 8.5,
+    "salary_p75_lpa": 20.4,
+    "salary_band_display": "\u20b95.2 - 20.4 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Excel",
+      "Power BI",
+      "SQL",
+      "Agile",
+      "Requirements Gathering",
+      "JIRA"
+    ],
+    "optional_skills": []
+  },
+  "Cloud Engineer": {
+    "title": "Cloud Engineer",
+    "category": "Cloud & Infrastructure",
+    "description": "Designs, provisions, and automates multi-cloud cloud infrastructure across AWS, Azure, and GCP using Terraform.",
+    "postings_count": 212,
+    "salary_p25_lpa": 6.2,
+    "salary_median_lpa": 8.7,
+    "salary_p75_lpa": 16.8,
+    "salary_band_display": "\u20b96.2 - 16.8 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Linux",
+      "AWS",
+      "Terraform",
+      "Azure",
+      "GCP",
+      "Docker",
+      "Kubernetes"
+    ],
+    "optional_skills": [
+      "SQL",
+      "Power BI",
+      "Excel"
+    ]
+  },
+  "Computer Vision Engineer": {
+    "title": "Computer Vision Engineer",
+    "category": "Data Science & AI",
+    "description": "Implements deep neural networks, YOLO object detection models, and OpenCV image processing pipelines.",
+    "postings_count": 76,
+    "salary_p25_lpa": 8.5,
+    "salary_median_lpa": 16.5,
+    "salary_p75_lpa": 31.2,
+    "salary_band_display": "\u20b98.5 - 31.2 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "TensorFlow",
+      "PyTorch",
+      "YOLO",
+      "Deep Learning",
+      "OpenCV",
+      "Python"
+    ],
+    "optional_skills": []
+  },
+  "Cybersecurity Analyst": {
+    "title": "Cybersecurity Analyst",
+    "category": "Security & Compliance",
+    "description": "Secures networks and applications, performs ethical hacking, vulnerability assessments, and SIEM monitoring.",
+    "postings_count": 162,
+    "salary_p25_lpa": 6.3,
+    "salary_median_lpa": 8.7,
+    "salary_p75_lpa": 16.8,
+    "salary_band_display": "\u20b96.3 - 16.8 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Python",
+      "Network Security",
+      "Ethical Hacking",
+      "Penetration Testing",
+      "SIEM"
+    ],
+    "optional_skills": [
+      "Excel",
+      "AWS",
+      "Machine Learning",
+      "Power BI",
+      "Java",
+      "SQL",
+      "Linux"
+    ]
+  },
+  "Data Analyst": {
+    "title": "Data Analyst",
+    "category": "Data Analytics",
+    "description": "Uncovers business insights from corporate data using SQL, statistical modeling, Tableau, and Power BI dashboards.",
+    "postings_count": 314,
+    "salary_p25_lpa": 5.6,
+    "salary_median_lpa": 10.7,
+    "salary_p75_lpa": 22.5,
+    "salary_band_display": "\u20b95.6 - 22.5 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Power BI",
+      "SQL",
+      "Data Visualization",
+      "Excel",
+      "Statistics",
+      "Tableau",
+      "Python"
+    ],
+    "optional_skills": []
+  },
+  "Data Engineer": {
+    "title": "Data Engineer",
+    "category": "Data Engineering",
+    "description": "Constructs fault-tolerant data pipelines, ETL streaming platforms using Apache Spark, Kafka, and dbt.",
+    "postings_count": 183,
+    "salary_p25_lpa": 6.5,
+    "salary_median_lpa": 13.6,
+    "salary_p75_lpa": 21.9,
+    "salary_band_display": "\u20b96.5 - 21.9 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "dbt",
+      "Spark",
+      "Airflow",
+      "Kafka",
+      "AWS",
+      "SQL",
+      "ETL",
+      "Python"
+    ],
+    "optional_skills": []
+  },
+  "Data Scientist": {
+    "title": "Data Scientist",
+    "category": "Data Science & AI",
+    "description": "Builds predictive statistical models, machine learning systems, and NLP text processing engines to solve business problems.",
+    "postings_count": 287,
+    "salary_p25_lpa": 7.8,
+    "salary_median_lpa": 11.5,
+    "salary_p75_lpa": 26.4,
+    "salary_band_display": "\u20b97.8 - 26.4 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Python",
+      "Statistics",
+      "Machine Learning",
+      "SQL",
+      "NLP",
+      "TensorFlow",
+      "Scikit-learn",
+      "Tableau",
+      "Pandas",
+      "Deep Learning"
+    ],
+    "optional_skills": []
+  },
+  "DevOps Engineer": {
+    "title": "DevOps Engineer",
+    "category": "Cloud & Infrastructure",
+    "description": "Automates continuous integration and continuous deployment pipelines using Docker, Kubernetes, Jenkins, and Ansible.",
+    "postings_count": 192,
+    "salary_p25_lpa": 7.4,
+    "salary_median_lpa": 14.7,
+    "salary_p75_lpa": 24.9,
+    "salary_band_display": "\u20b97.4 - 24.9 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Jenkins",
+      "Kubernetes",
+      "Docker",
+      "Terraform",
+      "Ansible",
+      "Linux",
+      "AWS",
+      "CI/CD"
+    ],
+    "optional_skills": []
+  },
+  "Engineering Manager": {
+    "title": "Engineering Manager",
+    "category": "Engineering Leadership",
+    "description": "Guides high-performance software engineering teams, leads architectural design, OKR planning, and sprint execution.",
+    "postings_count": 85,
+    "salary_p25_lpa": 7.4,
+    "salary_median_lpa": 13.4,
+    "salary_p75_lpa": 26.2,
+    "salary_band_display": "\u20b97.4 - 26.2 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "System Design",
+      "Hiring",
+      "OKRs",
+      "Roadmapping",
+      "Agile",
+      "People Management"
+    ],
+    "optional_skills": []
+  },
+  "Frontend Developer": {
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "Creates modern, accessible web interfaces using TypeScript, React, Next.js, and CSS design systems.",
+    "postings_count": 193,
+    "salary_p25_lpa": 7.1,
+    "salary_median_lpa": 13.8,
+    "salary_p75_lpa": 26.2,
+    "salary_band_display": "\u20b97.1 - 26.2 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "TypeScript",
+      "JavaScript",
+      "Figma",
+      "HTML/CSS",
+      "Next.js",
+      "Tailwind CSS",
+      "React"
+    ],
+    "optional_skills": []
+  },
+  "Full Stack Developer": {
+    "title": "Full Stack Developer",
+    "category": "Software Engineering",
+    "description": "Delivers end-to-end web applications combining React interfaces with backend Node/Python APIs and SQL databases.",
+    "postings_count": 260,
+    "salary_p25_lpa": 7.0,
+    "salary_median_lpa": 12.9,
+    "salary_p75_lpa": 25.6,
+    "salary_band_display": "\u20b97.0 - 25.6 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "React",
+      "PostgreSQL",
+      "Python",
+      "Docker",
+      "AWS",
+      "Node.js",
+      "MongoDB",
+      "REST APIs"
+    ],
+    "optional_skills": []
+  },
+  "Java Developer": {
+    "title": "Java Developer",
+    "category": "Software Engineering",
+    "description": "Engineers enterprise applications, Spring Boot microservices, and distributed transaction systems.",
+    "postings_count": 249,
+    "salary_p25_lpa": 5.9,
+    "salary_median_lpa": 12.2,
+    "salary_p75_lpa": 22.8,
+    "salary_band_display": "\u20b95.9 - 22.8 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Microservices",
+      "SQL",
+      "REST APIs",
+      "Java",
+      "Hibernate",
+      "Maven",
+      "Spring Boot"
+    ],
+    "optional_skills": []
+  },
+  "MLOps Engineer": {
+    "title": "MLOps Engineer",
+    "category": "Data Science & AI",
+    "description": "Deploys, monitors, and optimizes machine learning models in production using MLflow, Docker, and Kubernetes.",
+    "postings_count": 110,
+    "salary_p25_lpa": 7.1,
+    "salary_median_lpa": 13.8,
+    "salary_p75_lpa": 25.5,
+    "salary_band_display": "\u20b97.1 - 25.5 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Kubernetes",
+      "AWS",
+      "Docker",
+      "Python",
+      "MLflow",
+      "Airflow",
+      "CI/CD"
+    ],
+    "optional_skills": []
+  },
+  "Machine Learning Engineer": {
+    "title": "Machine Learning Engineer",
+    "category": "Data Science & AI",
+    "description": "Designs deep learning architectures, trains PyTorch and TensorFlow models, and deploys high-throughput inference APIs.",
+    "postings_count": 169,
+    "salary_p25_lpa": 7.7,
+    "salary_median_lpa": 13.6,
+    "salary_p75_lpa": 27.9,
+    "salary_band_display": "\u20b97.7 - 27.9 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Docker",
+      "TensorFlow",
+      "AWS",
+      "PyTorch",
+      "MLOps",
+      "Python",
+      "Scikit-learn",
+      "Kubernetes"
+    ],
+    "optional_skills": []
+  },
+  "NLP Engineer": {
+    "title": "NLP Engineer",
+    "category": "Data Science & AI",
+    "description": "Builds transformer models, Hugging Face pipelines, and tokenizers for textual understanding and LLM fine-tuning.",
+    "postings_count": 81,
+    "salary_p25_lpa": 7.8,
+    "salary_median_lpa": 16.7,
+    "salary_p75_lpa": 27.2,
+    "salary_band_display": "\u20b97.8 - 27.2 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "TensorFlow",
+      "Hugging Face",
+      "Transformers",
+      "Large Language Models (LLMs)",
+      "Python",
+      "BERT",
+      "SpaCy"
+    ],
+    "optional_skills": []
+  },
+  "Node.js Developer": {
+    "title": "Node.js Developer",
+    "category": "Software Engineering",
+    "description": "Builds asynchronous REST and GraphQL APIs using Node.js, Express, TypeScript, and NoSQL databases.",
+    "postings_count": 169,
+    "salary_p25_lpa": 7.4,
+    "salary_median_lpa": 12.1,
+    "salary_p75_lpa": 22.5,
+    "salary_band_display": "\u20b97.4 - 22.5 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "REST APIs",
+      "MongoDB",
+      "JavaScript",
+      "TypeScript",
+      "Node.js",
+      "Express.js"
+    ],
+    "optional_skills": []
+  },
+  "Power BI Developer": {
+    "title": "Power BI Developer",
+    "category": "Business Intelligence",
+    "description": "Engineers data models, complex DAX measures, and executive KPI dashboards in Microsoft Power BI and SQL.",
+    "postings_count": 113,
+    "salary_p25_lpa": 6.7,
+    "salary_median_lpa": 13.7,
+    "salary_p75_lpa": 24.6,
+    "salary_band_display": "\u20b96.7 - 24.6 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Excel",
+      "DAX",
+      "Data Modeling",
+      "Power BI",
+      "SQL",
+      "ETL",
+      "Azure"
+    ],
+    "optional_skills": []
+  },
+  "Product Manager": {
+    "title": "Product Manager",
+    "category": "Product Management",
+    "description": "Owns product discovery, roadmap prioritisation, stakeholder alignment, user interviews, and Agile execution.",
+    "postings_count": 163,
+    "salary_p25_lpa": 6.6,
+    "salary_median_lpa": 11.6,
+    "salary_p75_lpa": 23.1,
+    "salary_band_display": "\u20b96.6 - 23.1 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "User Research",
+      "Agile",
+      "Roadmapping",
+      "JIRA",
+      "SQL",
+      "A/B Testing",
+      "Product Strategy"
+    ],
+    "optional_skills": []
+  },
+  "Python Developer": {
+    "title": "Python Developer",
+    "category": "Software Engineering",
+    "description": "Develops robust backend services, automated scripts, and data APIs with Python, FastAPI, Django, and PostgreSQL.",
+    "postings_count": 246,
+    "salary_p25_lpa": 6.6,
+    "salary_median_lpa": 14.8,
+    "salary_p75_lpa": 27.1,
+    "salary_band_display": "\u20b96.6 - 27.1 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "REST APIs",
+      "Docker",
+      "PostgreSQL",
+      "Django",
+      "FastAPI",
+      "AWS",
+      "Python"
+    ],
+    "optional_skills": []
+  },
+  "QA Engineer": {
+    "title": "QA Engineer",
+    "category": "Quality Assurance & Testing",
+    "description": "Ensures product reliability through automated end-to-end test suites using Selenium, Postman, and Python.",
+    "postings_count": 138,
+    "salary_p25_lpa": 5.5,
+    "salary_median_lpa": 11.9,
+    "salary_p75_lpa": 22.0,
+    "salary_band_display": "\u20b95.5 - 22.0 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Manual Testing",
+      "API Testing",
+      "Postman",
+      "Selenium",
+      "Python",
+      "JIRA"
+    ],
+    "optional_skills": []
+  },
+  "React Developer": {
+    "title": "React Developer",
+    "category": "Software Engineering",
+    "description": "Specializes in building reactive, component-driven client applications using React, Next.js, and Redux.",
+    "postings_count": 224,
+    "salary_p25_lpa": 6.0,
+    "salary_median_lpa": 12.1,
+    "salary_p75_lpa": 23.6,
+    "salary_band_display": "\u20b96.0 - 23.6 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Redux",
+      "HTML/CSS",
+      "JavaScript"
+    ],
+    "optional_skills": []
+  },
+  "Research Scientist": {
+    "title": "Research Scientist",
+    "category": "Data Science & AI",
+    "description": "Conducts advanced AI and algorithmic research, explores transformer architectures, and publishes empirical benchmarks.",
+    "postings_count": 80,
+    "salary_p25_lpa": 7.3,
+    "salary_median_lpa": 17.2,
+    "salary_p75_lpa": 34.9,
+    "salary_band_display": "\u20b97.3 - 34.9 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Deep Learning",
+      "Statistics",
+      "Python",
+      "Publications",
+      "NLP",
+      "PyTorch",
+      "R"
+    ],
+    "optional_skills": []
+  },
+  "Software Engineer": {
+    "title": "Software Engineer",
+    "category": "Software Engineering",
+    "description": "Designs algorithms, core software modules, data structures, and maintainable services across programming languages.",
+    "postings_count": 392,
+    "salary_p25_lpa": 6.2,
+    "salary_median_lpa": 10.9,
+    "salary_p75_lpa": 21.2,
+    "salary_band_display": "\u20b96.2 - 21.2 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Java",
+      "Python",
+      "System Design",
+      "Algorithms",
+      "C++",
+      "Git",
+      "Data Structures",
+      "REST APIs"
+    ],
+    "optional_skills": []
+  },
+  "Technical Lead": {
+    "title": "Technical Lead",
+    "category": "Engineering Leadership",
+    "description": "Provides technical leadership, architectural oversight, code reviews, and mentorship to software engineering squads.",
+    "postings_count": 137,
+    "salary_p25_lpa": 8.3,
+    "salary_median_lpa": 13.8,
+    "salary_p75_lpa": 26.2,
+    "salary_band_display": "\u20b98.3 - 26.2 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Agile",
+      "Team Leadership",
+      "Microservices",
+      "System Design",
+      "Code Review",
+      "AWS"
+    ],
+    "optional_skills": []
+  },
+  "UI/UX Designer": {
+    "title": "UI/UX Designer",
+    "category": "Design & Frontend",
+    "description": "Crafts user journeys, high-fidelity Figma prototypes, wireframes, and design systems aligned to human-computer interaction.",
+    "postings_count": 125,
+    "salary_p25_lpa": 6.2,
+    "salary_median_lpa": 14.2,
+    "salary_p75_lpa": 30.0,
+    "salary_band_display": "\u20b96.2 - 30.0 LPA",
+    "experience_range": "2-5 years",
+    "essential_skills": [
+      "Wireframing",
+      "Figma",
+      "Adobe XD",
+      "Prototyping",
+      "User Research",
+      "CSS"
+    ],
+    "optional_skills": []
+  },
+  "Web Developer": {
+    "title": "Web Developer",
+    "category": "Software Engineering",
+    "description": "Engineering role in the Indian technology sector focused on Web Developer.",
+    "postings_count": 63,
+    "salary_p25_lpa": 4.0,
+    "salary_median_lpa": 5.6,
+    "salary_p75_lpa": 7.1,
+    "salary_band_display": "\u20b94.0 - 7.1 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "SQL",
+      "AWS",
+      "Java",
+      "Power BI",
+      "Machine Learning",
+      "Excel"
+    ],
+    "optional_skills": [
+      "Python",
+      "Linux"
+    ]
+  },
+  "iOS Developer": {
+    "title": "iOS Developer",
+    "category": "Mobile Engineering",
+    "description": "Develops native iOS mobile apps using Swift, SwiftUI, Xcode, and Core Data architectures.",
+    "postings_count": 104,
+    "salary_p25_lpa": 6.9,
+    "salary_median_lpa": 12.4,
+    "salary_p75_lpa": 23.3,
+    "salary_band_display": "\u20b96.9 - 23.3 LPA",
+    "experience_range": "0-3 years",
+    "essential_skills": [
+      "Firebase",
+      "Swift",
+      "Xcode",
+      "SwiftUI",
+      "Core Data",
+      "REST APIs"
+    ],
+    "optional_skills": []
+  }
+}

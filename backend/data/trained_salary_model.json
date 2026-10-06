@@ -1,0 +1,25 @@
+{
+  "model_type": "NumPyRidgeRegressor",
+  "algorithm": "Closed-Form Normal Equation with L2 Tikhonov Regularization",
+  "features": [
+    "num_skills",
+    "years_exp",
+    "essential_ratio",
+    "is_ai_cloud"
+  ],
+  "intercept": -25.881120472059084,
+  "weights": [
+    -0.3822886361800391,
+    3.962824252884739,
+    35.53043528490899,
+    1.7592595650797238
+  ],
+  "alpha": 1.5,
+  "training_samples": 4400,
+  "test_samples": 1100,
+  "metrics": {
+    "test_mae_lpa": 5.74,
+    "test_rmse_lpa": 9.65,
+    "test_r2": 0.715
+  }
+}
