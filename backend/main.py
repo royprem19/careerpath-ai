@@ -18,6 +18,7 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from backend.routers import resume, roles, analysis, recommendations, roadmap, report, auth
 from backend.database import get_supabase
+from backend.config import settings
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -36,9 +37,21 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+# Production & Local CORS settings
+allowed_origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:8000",
+]
+if hasattr(settings, "FRONTEND_URL") and settings.FRONTEND_URL:
+    allowed_origins.append(settings.FRONTEND_URL.rstrip("/"))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins,
+    allow_origin_regex=r"^https://.*(\.vercel\.app|\.netlify\.app|\.pages\.dev|\.onrender\.com)$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
