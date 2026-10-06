@@ -8,6 +8,7 @@ import RoleSelection from './pages/RoleSelection';
 import Dashboard from './pages/Dashboard';
 import AuthPage from './pages/AuthPage';
 import UserProfilePage from './pages/UserProfilePage';
+import VerifyEmailPage from './pages/VerifyEmailPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/my-profile" element={<UserProfilePage />} />
+              <Route path="/verify-email" element={<VerifyEmailPage />} />
             </Routes>
           </main>
         </div>

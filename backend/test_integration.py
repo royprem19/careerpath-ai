@@ -123,7 +123,18 @@ def run_tests():
         "graduation_year": 2026,
         "skills": []
     }
-    client.post("/api/auth/register", json=reg_payload)
+    reg_res = client.post("/api/auth/register", json=reg_payload)
+    assert reg_res.status_code == 200, f"Registration failed: {reg_res.text}"
+    assert reg_res.json().get("email_verified") is False, "Account should be unverified initially"
+
+    # Verify the email via token before login
+    from backend.services.auth_service import _VERIFICATION_TOKENS
+    for tok, data in _VERIFICATION_TOKENS.items():
+        if data.get("email") == "candidate_test@campus.ac.in" and not data.get("used"):
+            v_res = client.get(f"/api/auth/verify-email?token={tok}")
+            assert v_res.status_code == 200
+            break
+
     res = client.post("/api/auth/login", json={"email": "candidate_test@campus.ac.in", "password": "Password@123"})
     assert res.status_code == 200, f"Student login failed: {res.text}"
     auth_data = res.json()

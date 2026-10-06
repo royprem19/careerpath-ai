@@ -1,8 +1,15 @@
-from fastapi import APIRouter, HTTPException, Depends, Header
+from fastapi import APIRouter, HTTPException, Depends, Header, Query
 from typing import Optional
 
-from backend.models.schemas import UserRegisterRequest, UserLoginRequest, UserUpdateRequest, AuthResponse, UserResponse
-from backend.services.auth_service import register_user, login_user, get_current_user, update_user_profile
+from backend.models.schemas import (
+    UserRegisterRequest, UserLoginRequest, UserUpdateRequest,
+    AuthResponse, UserResponse, RegistrationResponse,
+    EmailVerificationRequest, EmailVerificationResponse, ResendVerificationRequest
+)
+from backend.services.auth_service import (
+    register_user, login_user, get_current_user, update_user_profile,
+    verify_email_token, resend_verification_email
+)
 
 router = APIRouter(prefix="/api/auth", tags=["Authentication"])
 
@@ -11,7 +18,7 @@ def get_bearer_token(authorization: Optional[str] = Header(None)) -> str:
         raise HTTPException(status_code=401, detail="Missing or invalid Bearer token")
     return authorization.split("Bearer ", 1)[1].strip()
 
-@router.post("/register", response_model=AuthResponse)
+@router.post("/register", response_model=RegistrationResponse)
 async def api_register(req: UserRegisterRequest):
     try:
         return register_user(req)
@@ -25,9 +32,41 @@ async def api_login(req: UserLoginRequest):
     try:
         return login_user(req)
     except ValueError as e:
-        raise HTTPException(status_code=401, detail=str(e))
+        err_msg = str(e)
+        # 403 Forbidden when email is unverified; 401 Unauthorized for bad credentials
+        status_code = 403 if "verify your email" in err_msg.lower() else 401
+        raise HTTPException(status_code=status_code, detail=err_msg)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Login failed: {str(e)}")
+
+@router.get("/verify-email", response_model=EmailVerificationResponse)
+async def api_verify_email_get(token: str = Query(..., description="Email verification token")):
+    try:
+        return verify_email_token(token)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Verification failed: {str(e)}")
+
+@router.post("/verify-email", response_model=EmailVerificationResponse)
+async def api_verify_email_post(req: EmailVerificationRequest):
+    try:
+        return verify_email_token(req.token)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Verification failed: {str(e)}")
+
+@router.post("/resend-verification")
+async def api_resend_verification(req: ResendVerificationRequest):
+    try:
+        return resend_verification_email(req.email)
+    except ValueError as e:
+        # Rate limiting cooldown (429) or validation (400)
+        status_code = 429 if "wait" in str(e).lower() else 400
+        raise HTTPException(status_code=status_code, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to resend verification: {str(e)}")
 
 @router.get("/me", response_model=UserResponse)
 async def api_get_current_user(token: str = Depends(get_bearer_token)):

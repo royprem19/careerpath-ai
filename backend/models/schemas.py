@@ -199,6 +199,33 @@ class UserUpdateRequest(BaseModel):
     def validate_dept(cls, v: Optional[str]) -> Optional[str]:
         return sanitize_text(v, max_length=100, field_name="Department") if v else v
 
+class RegistrationResponse(BaseModel):
+    success: bool = True
+    message: str
+    email: str
+    email_verified: bool = False
+
+class EmailVerificationRequest(BaseModel):
+    token: str
+
+    @field_validator("token")
+    @classmethod
+    def validate_tok(cls, v: str) -> str:
+        return sanitize_text(v, max_length=128, field_name="Verification Token")
+
+class EmailVerificationResponse(BaseModel):
+    success: bool
+    message: str
+    email: Optional[str] = None
+
+class ResendVerificationRequest(BaseModel):
+    email: str
+
+    @field_validator("email")
+    @classmethod
+    def validate_email(cls, v: str) -> str:
+        return sanitize_email(v)
+
 class UserResponse(BaseModel):
     id: str
     email: str
@@ -208,6 +235,7 @@ class UserResponse(BaseModel):
     department: Optional[str] = None
     graduation_year: Optional[int] = None
     skills: List[str] = []
+    email_verified: bool = True
 
 class AuthResponse(BaseModel):
     access_token: str

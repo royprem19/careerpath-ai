@@ -35,6 +35,14 @@ export const updateUserProfile = async (profileData) => {
   return api.put('/api/auth/profile', profileData);
 };
 
+export const verifyEmail = async (token) => {
+  return api.get('/api/auth/verify-email', { params: { token } });
+};
+
+export const resendVerification = async (email) => {
+  return api.post('/api/auth/resend-verification', { email });
+};
+
 // ==============================================================================
 // INSTITUTION & UNIVERSITY ANALYTICS APIs
 // ==============================================================================
