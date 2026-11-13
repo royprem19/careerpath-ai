@@ -95,8 +95,15 @@ const AuthPage = () => {
   const [resendMsg, setResendMsg] = useState('');
   const [cooldown, setCooldown] = useState(0);
 
-  const { login } = useAppContext();
+  const { currentUser, token, login } = useAppContext();
   const navigate = useNavigate();
+
+  // If user is already logged in, redirect directly to main page
+  useEffect(() => {
+    if (currentUser && token) {
+      navigate('/');
+    }
+  }, [currentUser, token, navigate]);
 
   const domainSuggestion = checkEmailDomainTypo(email);
 
