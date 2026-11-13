@@ -32,7 +32,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="CareerPath AI - Backend API",
-    description="Intelligent Talent & Workforce Ecosystem API for Build For Bharat 2.0",
+    description="Intelligent Talent & Workforce Ecosystem API",
     version="2.0.0",
     lifespan=lifespan
 )

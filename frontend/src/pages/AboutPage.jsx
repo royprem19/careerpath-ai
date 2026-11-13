@@ -14,7 +14,7 @@ const AboutPage = () => {
       <div className="text-center max-w-4xl mx-auto pt-4">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-5 shadow-2xs">
           <Sparkles size={14} className="text-indigo-600" />
-          <span>Built for Bharat • Career Intelligence</span>
+          <span>AI-Powered Career Intelligence</span>
         </div>
         
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-5">
@@ -25,7 +25,7 @@ const AboutPage = () => {
         </h1>
         
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto mb-8">
-          CareerPath AI is an empirical competency intelligence platform built to bridge the divide between university curricula and modern tech industry demands across Bharat.
+          CareerPath AI is an empirical competency intelligence platform built to bridge the divide between university curricula and modern tech industry demands.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4">

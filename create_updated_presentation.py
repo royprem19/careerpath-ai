@@ -1,6 +1,6 @@
 """
 CareerPath AI - Official Round 2 Hackathon Presentation Generator
-SAS & Chandigarh University Hackathon | Build For Bharat 2.0
+SAS & Chandigarh University Hackathon
 Strictly aligned with Round-2 Evaluation Sheet (100 Marks across 6 criteria)
 """
 
@@ -66,7 +66,7 @@ def build_presentation():
 
         tf = foot.text_frame
         p = tf.paragraphs[0]
-        p.text = "CareerPath AI  |  SAS & CU Hackathon  ·  Round 2 Technical Evaluation  |  Build For Bharat 2.0"
+        p.text = "CareerPath AI  |  SAS & CU Hackathon  ·  Round 2 Technical Evaluation"
         p.font.size = Pt(8.5)
         p.font.color.rgb = MEDIUM_TEXT
         p.alignment = PP_ALIGN.LEFT

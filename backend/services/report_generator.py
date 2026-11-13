@@ -82,7 +82,7 @@ def generate_pdf_report(user_profile: dict, gap_analysis: dict, recommendations:
 
     # Title & Subtitle Header
     story.append(Paragraph("CareerPath AI | Workforce Intelligence Report", title_style))
-    story.append(Paragraph("Build For Bharat 2.0 — AI Skill Gap Analysis & Predictive Career Analytics", subtitle_style))
+    story.append(Paragraph("AI Skill Gap Analysis & Predictive Career Analytics", subtitle_style))
     story.append(Spacer(1, 8))
     story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#3b82f6'), spaceAfter=10))
 
