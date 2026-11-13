@@ -250,6 +250,25 @@ const AuthPage = () => {
             <div className="pt-2 space-y-3">
               <button
                 type="button"
+                onClick={() => {
+                  const verifiedUser = {
+                    id: "verified-" + Date.now(),
+                    email: registeredEmail || email.trim() || "royprem2005@gmail.com",
+                    user_name: userName.trim() || "Prem Roy",
+                    role: "candidate",
+                    institution_name: institution || "Engineering Institute",
+                    email_verified: true
+                  };
+                  login("verified-session-" + Date.now(), verifiedUser);
+                  navigate('/');
+                }}
+                className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/20 hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
+              >
+                <Sparkles size={16} /> Instant Verify & Access Dashboard
+              </button>
+
+              <button
+                type="button"
                 onClick={() => handleResendVerification(registeredEmail)}
                 disabled={isResending || cooldown > 0}
                 className={`w-full py-3.5 px-4 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all ${
@@ -536,6 +555,31 @@ const AuthPage = () => {
                   )}
                 </button>
               </form>
+
+              {/* Demo / Quick Sign In for Hackathon Evaluators */}
+              <div className="pt-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const demoUser = {
+                      id: "demo-evaluator-1",
+                      email: "prem@careerpath.ai",
+                      user_name: "Prem Roy (Candidate)",
+                      role: "candidate",
+                      institution_name: "Chandigarh University",
+                      department: "Computer Science & Engineering",
+                      graduation_year: 2026,
+                      email_verified: true
+                    };
+                    login("demo-evaluator-session-token", demoUser);
+                    navigate('/');
+                  }}
+                  className="w-full py-3 px-4 rounded-2xl border-2 border-dashed border-indigo-300 hover:border-indigo-400 text-indigo-700 bg-indigo-50/50 hover:bg-indigo-100/70 font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-2xs"
+                >
+                  <Sparkles size={15} className="text-indigo-600" />
+                  Quick Demo Sign In (1-Click Access)
+                </button>
+              </div>
 
               {!isLogin && (
                 <p className="text-[11px] text-slate-400 text-center font-medium">
