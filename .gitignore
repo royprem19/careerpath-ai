@@ -53,6 +53,11 @@ yarn-error.log*
 Thumbs.db
 desktop.ini
 
+# Reports, Presentations & Large Office Documents
+*.docx
+*.pptx
+*.pdf
+
 # Agent / Tool Artifacts
 .gemini/
 .antigravity/
