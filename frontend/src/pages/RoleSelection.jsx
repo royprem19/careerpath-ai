@@ -24,8 +24,64 @@ const RoleSelection = () => {
           setErrorMsg('No roles found in the database.');
         }
       } catch (err) {
-        console.error('Failed to fetch roles:', err);
-        setErrorMsg('Could not connect to the API server. Please check if the backend is running.');
+        console.warn('Failed to fetch live roles from API, loading fallback benchmark roles:', err);
+        const fallbackRoles = [
+          {
+            id: "frontend-developer",
+            title: "Frontend Developer",
+            category: "Software Engineering",
+            description: "Designs and builds responsive web user interfaces using modern JavaScript frameworks, HTML5, and CSS3.",
+            salary_band_display: "₹4.5 - 9.0 LPA",
+            essential_skills: ["React", "JavaScript", "HTML5", "CSS3", "Git", "TypeScript"],
+            optional_skills: ["Next.js", "TailwindCSS", "Jest", "Redux"]
+          },
+          {
+            id: "backend-developer",
+            title: "Backend Developer",
+            category: "Software Engineering",
+            description: "Develops server-side logic, database schemas, REST APIs, and microservices for scalable web applications.",
+            salary_band_display: "₹5.5 - 12.0 LPA",
+            essential_skills: ["Python", "FastAPI", "SQL", "Node.js", "Git", "Docker"],
+            optional_skills: ["PostgreSQL", "Redis", "AWS", "MongoDB"]
+          },
+          {
+            id: "full-stack-developer",
+            title: "Full Stack Developer",
+            category: "Software Engineering",
+            description: "Engineers end-to-end web applications across client interfaces, business logic layers, and relational databases.",
+            salary_band_display: "₹6.0 - 14.0 LPA",
+            essential_skills: ["React", "Node.js", "JavaScript", "SQL", "Git", "HTML5"],
+            optional_skills: ["TypeScript", "Docker", "Express", "MongoDB"]
+          },
+          {
+            id: "data-scientist",
+            title: "Data Scientist",
+            category: "Data Science & AI",
+            description: "Builds statistical models, machine learning algorithms, and predictive analytics pipelines to solve business challenges.",
+            salary_band_display: "₹7.5 - 16.0 LPA",
+            essential_skills: ["Python", "Machine Learning", "SQL", "Pandas", "Scikit-Learn", "Statistics"],
+            optional_skills: ["Deep Learning", "PyTorch", "Tableau", "AWS"]
+          },
+          {
+            id: "ai-engineer",
+            title: "AI Engineer",
+            category: "Data Science & AI",
+            description: "Develops large language model applications, vector database retrieval pipelines, and production AI agent workflows.",
+            salary_band_display: "₹8.0 - 18.0 LPA",
+            essential_skills: ["Python", "Machine Learning", "NLP", "FastAPI", "Git", "Docker"],
+            optional_skills: ["LLMs", "RAG", "LangChain", "Vector DBs"]
+          },
+          {
+            id: "cloud-devops-engineer",
+            title: "Cloud & DevOps Engineer",
+            category: "Infrastructure & Cloud",
+            description: "Automates CI/CD pipelines, container orchestration, and cloud infrastructure provisioning.",
+            salary_band_display: "₹6.5 - 15.0 LPA",
+            essential_skills: ["Docker", "Kubernetes", "Linux", "AWS", "Git", "CI/CD"],
+            optional_skills: ["Terraform", "Ansible", "Python", "Prometheus"]
+          }
+        ];
+        setRoles(fallbackRoles);
       } finally {
         setLoading(false);
       }
