@@ -556,31 +556,6 @@ const AuthPage = () => {
                 </button>
               </form>
 
-              {/* Demo / Quick Sign In for Hackathon Evaluators */}
-              <div className="pt-1">
-                <button
-                  type="button"
-                  onClick={() => {
-                    const demoUser = {
-                      id: "demo-evaluator-1",
-                      email: "prem@careerpath.ai",
-                      user_name: "Prem Roy (Candidate)",
-                      role: "candidate",
-                      institution_name: "Chandigarh University",
-                      department: "Computer Science & Engineering",
-                      graduation_year: 2026,
-                      email_verified: true
-                    };
-                    login("demo-evaluator-session-token", demoUser);
-                    navigate('/');
-                  }}
-                  className="w-full py-3 px-4 rounded-2xl border-2 border-dashed border-indigo-300 hover:border-indigo-400 text-indigo-700 bg-indigo-50/50 hover:bg-indigo-100/70 font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-2xs"
-                >
-                  <Sparkles size={15} className="text-indigo-600" />
-                  Quick Demo Sign In (1-Click Access)
-                </button>
-              </div>
-
               {!isLogin && (
                 <p className="text-[11px] text-slate-400 text-center font-medium">
                   By creating an account, a verification link will be sent to your email to prove ownership before activation.
